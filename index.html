@@ -12,15 +12,18 @@
 <!-- ✅ HEADER DU SITE -->
 <header class="main-header">
   <div class="logo">
-    <span>🍽️</span>
+    <a href="index.html">
+      <img src="images/logo-diallo.png" alt="Logo Diallo" />
+    </a>
     <h1>Café Resto Chez Diallo</h1>
   </div>
 
+
   <nav class="nav-menu">
     <ul>
-      <li><a href="#inicio">Accueil</a></li>
+      <li><a href="#hero-diallo">Accueil</a></li>
       <li><a href="#nosotros">Nous</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#footer-contact">Contact</a></li>
       <li class="dropdown">
         <a href="#">Menu ▾</a>
         <ul class="dropdown-content">
@@ -33,11 +36,15 @@
     </ul>
   </nav>
 
-  <div class="header-right">
-    <div class="search-box">
-      <input type="text" placeholder="Rechercher...">
-      <button>🔍</button>
-    </div>
+<div class="header-right">
+  <div class="search-box">
+<input type="text" id="recherche-input" placeholder="Rechercher...">
+<button id="recherche-btn">🔍</button>
+    <div id="suggestions"></div> <!-- Résultats ici -->
+  </div>
+</div>
+
+
     <div class="cart-icon">
       <span>🛒</span>
       <span class="cart-count">1</span>
@@ -45,9 +52,9 @@
   </div>
 </header>
 <!-- ✅ SECTION HERO -->
-<section class="hero-diallo">
+<section class="hero-diallo" id="hero-diallo">
   <div class="hero-content-diallo">
-    <h1>🍽️ Bienvenue chez Diallo</h1>
+    <h1> Bienvenue chez Diallo</h1>
     <p>Saveurs d’Afrique, plats faits maison, accueil chaleureux à Parakou</p>
     <a href="#plats" class="btn-diallo">Voir notre Menu</a>
   </div>
@@ -237,7 +244,7 @@
     </div>
 
     <div class="plat">
-      <img src="images/boissons/coca.png" alt="Coca-Cola">
+      <img src="images/coca.png" alt="Coca-Cola">
       <h3>Coca-Cola (50cl)</h3>
       <p class="prix-unite">Prix : 400 FCFA</p>
       <div class="quantite-wrapper">
@@ -250,7 +257,7 @@
     </div>
 
     <div class="plat">
-      <img src="images/boissons/sprite.png" alt="Sprite">
+      <img src="images/sprite.png" alt="Sprite">
       <h3>Sprite (50cl)</h3>
       <p class="prix-unite">Prix : 400 FCFA</p>
       <div class="quantite-wrapper">
@@ -263,7 +270,7 @@
     </div>
 
     <div class="plat">
-      <img src="images/boissons/pepsi.png" alt="Pepsi">
+      <img src="images/pepsi.png" alt="Pepsi">
       <h3>Pepsi (50cl)</h3>
       <p class="prix-unite">Prix : 400 FCFA</p>
       <div class="quantite-wrapper">
@@ -276,7 +283,7 @@
     </div>
 
     <div class="plat">
-      <img src="images/boissons/schweppes.png" alt="Schweppes">
+      <img src="images/schweppes.png" alt="Schweppes">
       <h3>Schweppes</h3>
       <p class="prix-unite">Prix : 450 FCFA</p>
       <div class="quantite-wrapper">
@@ -289,7 +296,7 @@
     </div>
 
     <div class="plat">
-      <img src="images/boissons/7up.png" alt="7up">
+      <img src="images/7up.png" alt="7up">
       <h3>7up (50cl)</h3>
       <p class="prix-unite">Prix : 400 FCFA</p>
       <div class="quantite-wrapper">
@@ -358,26 +365,29 @@
       <img src="images/beignets+bouillie.png" alt="Beignets + bouillie">
       <h3>Beignets + bouillie</h3>
       <p>500 FCFA</p>
-      <button>Commander</button>
+            <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec du bouillie.">
+
+<button class="btn-commande">Commander</button>
+      </a>
     </div>
 
     <!-- Variante 2 -->
     <div class="plat">
-      <img src="images/petit-dejeuner/beignets-cafe.jpg" alt="Beignets + café au lait">
+      <img src="images/beignets+cafe.png" alt="Beignets + café au lait">
       <h3>Beignets + café au lait</h3>
       <p>600 FCFA</p>
       <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec café au lait.">
-        <button>Commander</button>
+<button class="btn-commande">Commander</button>
       </a>
     </div>
 
     <!-- Variante 3 -->
     <div class="plat">
-      <img src="images/petit-dejeuner/pain-omelette.jpg" alt="Pain + omelette">
+      <img src="images/pain-omelette.png" alt="Pain + omelette">
       <h3>Pain + omelette</h3>
       <p>700 FCFA</p>
       <a href="https://wa.me/22961494563?text=Je souhaite commander du pain avec omelette.">
-        <button>Commander</button>
+<button class="btn-commande">Commander</button>
       </a>
     </div>
 
@@ -387,23 +397,23 @@
 
 <section id="menu-principal">
   <h2>Menu du jour</h2>
-  <div class="plat-principal">
-    
-    <h3>Spaghetti aux sardines</h3>
-    
-    <p><strong>Ingrédients :</strong> spaghetti, sauce tomate, sardines grillées, œuf dur, tomates cerises</p>
-    
-    <div class="quantite-panier">
-      <button onclick="decrease()">−</button>
-      <span id="quantite">1</span>
-      <button onclick="increase()">+</button>
+  <div class="grid-menu">
+
+    <div class="plat">
+      <img src="images/plats/spaghetti-sardines.jpg" alt="Spaghetti aux sardines">
+      <h3>Spaghetti aux sardines</h3>
+      <p class="prix-unite">Prix : 800 FCFA</p>
+      <div class="quantite-wrapper">
+        <button class="moins">−</button>
+        <input type="text" class="quantite" value="1" readonly>
+        <button class="plus">+</button>
+      </div>
+      <button class="ajouter-panier">Ajouter au panier</button>
     </div>
-    
-    <p><strong>Prix :</strong> 800 FCFA</p>
-    
-<button class="ajouter-panier">Ajouter au panier</button>
+
   </div>
 </section>
+
 
 
 <section id="menu">
@@ -493,6 +503,8 @@
 
 
 <footer>
+
+ <footer id="footer-contact">
   <div class="footer-contact">
     <p>📍 <strong>Lieu :</strong> Rond Point PK-Télé – Parakou</p>
     <p>📞 <strong>Téléphone :</strong> <a href="tel:+22961494563">+229 61 49 45 63</a></p>
@@ -500,7 +512,26 @@
     <p>🔵 <strong>Facebook :</strong> <a href="https://www.facebook.com/CaféRestoChezDiallo" target="_blank">Café Resto Chez Diallo</a></p>
   </div>
 
-  <hr style="margin: 20px 0; border-color: #fff;">
+  <!-- Google Maps intégrée -->
+<!-- 📍 Section Carte Google Maps -->
+<section id="carte" class="section-map">
+  <h2>📍 Nous trouver</h2>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.847986996699!2d2.6152212740924063!3d9.340707690736814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104c3f2e9345a0a3%3A0x39750966bb9b7f47!2sRond%20point%20PK-T%C3%A9l%C3%A9%2C%20Parakou!5e0!3m2!1sfr!2sbj!4v1691351000000!5m2!1sfr!2sbj"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+
+</footer>
+
+
+
+
 
   <div class="footer-paiements">
     <p><strong>Moyens de paiement acceptés :</strong></p>
@@ -588,11 +619,23 @@
     </div>
   </div>
 </div>
+<div id="instructions-mobile" class="hidden" style="margin-top: 10px; color: brown;">
+  Payer via <strong>Moov</strong> ou <strong>Céltiis</strong> au numéro :<br>
+  <strong>Moov :</strong> 95 55 55 55<br>
+  <strong>Céltiis :</strong> 94 44 44 44<br>
+  📸 Envoie une capture après paiement sur WhatsApp.
+</div>
 
 
+<a href="https://wa.me/22961494563" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
+  <img src="/images/whatsapp-icon.png" alt="WhatsApp" />
+</a>
 
 <!-- 3. VIDER PANIER -->
 <script src="carrito.js"></script> <!-- ou le nom de ton fichier JS -->
+<script src="search.js" defer></script>
+
+
 
 </body>
 </html>

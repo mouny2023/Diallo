@@ -122,7 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
       ` Heure souhaitée : ${heure}h`;
 
     if (paiement === "Paiement mobile") {
-      message += `\n\n📱 Veuillez envoyer le montant via Moov Money ou Céltiis au numéro 95 55 55 55.\n📸 Merci de m’envoyer la capture du paiement ici sur WhatsApp.`;
+      message += `\n\n📲 *Instructions de paiement mobile* :\n`;
+      message += `➡️ Si tu utilises *Moov Money*, envoie à : *95 55 55 55*\n`;
+      message += `➡️ Si tu utilises *Céltiis*, envoie à : *94 44 44 44*\n`;
+      message += `📸 Merci d’envoyer une capture ici même sur WhatsApp après paiement.`;
     }
 
     const url = `https://wa.me/22961494563?text=${encodeURIComponent(message)}`;
@@ -141,7 +144,19 @@ document.addEventListener('DOMContentLoaded', function () {
   paiementSelect?.addEventListener('change', () => {
     instructionsDiv?.classList.toggle('hidden', paiementSelect.value !== 'Paiement mobile');
   });
+function increase() {
+    const span = document.getElementById("quantite");
+    let current = parseInt(span.textContent);
+    span.textContent = current + 1;
+  }
 
+  function decrease() {
+    const span = document.getElementById("quantite");
+    let current = parseInt(span.textContent);
+    if (current > 1) {
+      span.textContent = current - 1;
+    }
+  }
   // Initialisation
   bindQuantiteButtons();
   bindAjouterPanierButtons();
