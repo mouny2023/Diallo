@@ -28,7 +28,8 @@
 #plats h2,
 #boissons h2,
 #petit-dejeuner h2,
-#desserts h2 {
+#desserts h2,
+    #pates h2 {
   background-color: #FBC02D;
   display: inline-block;
   padding: 0.5em 1em;
@@ -289,6 +290,7 @@ height: 60px;
 }
 
 .search-box {
+  position: relative; /* ✅ AJOUTEZ CETTE LIGNE */
   display: flex;
   background: white;
   border-radius: 25px;
@@ -725,12 +727,49 @@ html {
 }
 
 
+/*
+ * 1. LE CONTENEUR DE LA RECHERCHE
+ * Assure que les suggestions se positionnent par rapport à lui.
+*/
+.search-box {
+  position: relative; /* TRÈS IMPORTANT */
+  display: flex;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/*
+ * 2. LE CONTENEUR DES SUGGESTIONS
+ * Assure que les suggestions apparaissent au-dessus de tout le reste.
+*/
 #suggestions {
+  position: absolute;   /* TRÈS IMPORTANT */
+  z-index: 1001;        /* TRÈS IMPORTANT - Met les suggestions au-dessus du menu */
+  
+  /* --- Styles pour la visibilité --- */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  top: 100%; /* Se place juste en dessous de la barre */
+  left: 0;
+  width: 100%;
   max-height: 200px;
   overflow-y: auto;
-  width: 100%;
-  position: absolute;
-  z-index: 10;
+  box-sizing: border-box; /* Empêche les problèmes de largeur */
+}
+
+/* Style pour chaque suggestion individuelle */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  text-align: left; /* Aligne le texte à gauche */
+  color: #333; /* Couleur de texte lisible */
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
 }
 
 

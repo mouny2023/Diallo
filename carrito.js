@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       somme += item.prix * item.quantite;
     });
 
-    total.textContent = somme + " FCFA";
+    total.textContent = somme;
     updateCartCount();
     panierContainer?.classList.toggle('hidden', panier.length === 0);
   }
@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const quantiteInput = plat.querySelector('.quantite');
 
       if (!moins || !plus || !quantiteInput) return;
-
-      // On supprime les anciens écouteurs pour éviter les doublons
+      
       const nouveauMoins = moins.cloneNode(true);
       const nouveauPlus = plus.cloneNode(true);
       moins.replaceWith(nouveauMoins);
@@ -57,20 +56,26 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.plat').forEach(plat => {
       const bouton = plat.querySelector('.ajouter-panier');
       const nom = plat.querySelector('h3')?.textContent;
-      const prixText = plat.querySelector('.prix-unite')?.textContent;
       const quantiteInput = plat.querySelector('.quantite');
+      
+      // ✅ MODIFICATION : Retour à l'ancienne méthode pour lire le prix
+      const prixText = plat.querySelector('.prix-unite')?.textContent;
 
+      // On vérifie que prixText existe avant de continuer
       if (!bouton || !nom || !prixText || !quantiteInput) return;
-
-      const prix = parseInt(prixText.match(/\d+/)[0], 10);
+      
+      // On extrait le nombre du texte
+      const prixMatch = prixText.match(/\d+/);
+      if (!prixMatch) return; // Sécurité si aucun nombre n'est trouvé
+      const prix = parseInt(prixMatch[0], 10);
 
       bouton.addEventListener('click', () => {
         const quantite = parseInt(quantiteInput.value, 10);
         if (isNaN(quantite) || quantite < 1) return;
 
-        const item = panier.find(p => p.nom === nom);
-        if (item) {
-          item.quantite += quantite;
+        const itemExistant = panier.find(p => p.nom === nom);
+        if (itemExistant) {
+          itemExistant.quantite += quantite;
         } else {
           panier.push({ nom, prix, quantite });
         }
@@ -81,7 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Boutons
+  // --- Gestion des boutons du panier et du modal ---
+
   document.getElementById('vider-panier')?.addEventListener('click', () => {
     panier = [];
     majPanier();
@@ -106,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heure = document.getElementById('heure')?.value;
 
     if (!nom || !heure || !paiement || !livraison) {
-      alert("Remplis tous les champs !");
+      alert("Remplissez tous les champs !");
       return;
     }
 
@@ -115,11 +121,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let message =
       `Bonjour, je m'appelle ${nom}.\n\n` +
-      ` Je souhaite commander :\n${commandeText}\n\n` +
-      ` Total : ${total} FCFA\n` +
-      ` Livraison : ${livraison}\n` +
-      ` Paiement : ${paiement}\n` +
-      ` Heure souhaitée : ${heure}h`;
+      `Je souhaite commander :\n${commandeText}\n\n` +
+      `Total : ${total} FCFA\n` +
+      `Livraison : ${livraison}\n` +
+      `Paiement : ${paiement}\n` +
+      `Heure souhaitée : ${heure}h`;
 
     if (paiement === "Paiement mobile") {
       message += `\n\n📲 *Instructions de paiement mobile* :\n`;
@@ -130,34 +136,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const url = `https://wa.me/22961494563?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
-
+    
     document.getElementById('panier-modal')?.classList.add('hidden');
     document.querySelector('.panier-container')?.classList.add('hidden');
     panier = [];
     majPanier();
   });
-
-  // Afficher les instructions si "Paiement mobile"
+  
   const paiementSelect = document.getElementById('paiement');
   const instructionsDiv = document.getElementById('instructions-mobile');
 
   paiementSelect?.addEventListener('change', () => {
     instructionsDiv?.classList.toggle('hidden', paiementSelect.value !== 'Paiement mobile');
   });
-function increase() {
-    const span = document.getElementById("quantite");
-    let current = parseInt(span.textContent);
-    span.textContent = current + 1;
-  }
 
-  function decrease() {
-    const span = document.getElementById("quantite");
-    let current = parseInt(span.textContent);
-    if (current > 1) {
-      span.textContent = current - 1;
-    }
-  }
-  // Initialisation
+  // --- Initialisation ---
   bindQuantiteButtons();
   bindAjouterPanierButtons();
   majPanier();
