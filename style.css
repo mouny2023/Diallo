@@ -45,15 +45,6 @@
       margin-top: 1em;
     }
 
-   .grid-menu img {
-  width: 100%;
-  max-height: 200px; /* ou + si tu veux */
-  object-fit: contain;
-  background-color: white;
-  padding: 10px;
-}
-
-
 .plat {
   display: flex;
   flex-direction: column;
@@ -289,13 +280,7 @@ height: 60px;
   gap: 15px;
 }
 
-.search-box {
-  position: relative; /* ✅ AJOUTEZ CETTE LIGNE */
-  display: flex;
-  background: white;
-  border-radius: 25px;
-  overflow: hidden;
-}
+
 
 .search-box input {
   border: none;
@@ -436,56 +421,6 @@ html {
 }
 
 
-
-.hero-diallo::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* assombrit le fond */
-  z-index: 1;
-}
-
-
-
-.hero-content-diallo {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 40px;
-  border-radius: 16px;
-  backdrop-filter: blur(5px);
-  z-index: 2;
-}
-
-.hero-content-diallo h1 {
-  font-size: 3.2rem;
-  margin-bottom: 1rem;
-  color: #ffd700; /* Jaune or */
-}
-
-.hero-content-diallo p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-
-.btn-diallo {
-  background-color: #f4b400;
-  color: #000;
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn-diallo:hover {
-  background-color: #eaa000;
-}
-
-
 .hero-diallo::before {
   content: "";
   position: absolute;
@@ -544,23 +479,6 @@ html {
   border-radius: 10px;
 }
 
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-}
 
 .hidden {
   display: none;
@@ -660,7 +578,7 @@ html {
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px; /* <--- On remplace "right" par "left" */
   z-index: 1000;
   animation: floatUpDown 2s infinite ease-in-out;
 }
@@ -727,6 +645,9 @@ html {
 }
 
 
+
+
+
 /*
  * 1. LE CONTENEUR DE LA RECHERCHE
  * Assure que les suggestions se positionnent par rapport à lui.
@@ -772,7 +693,231 @@ html {
   background-color: #f0f0f0;
 }
 
+/* =================================
+   SECTION NOUS / À PROPOS (Améliorée)
+   ================================= */
 
+#nous {
+  background-color: #ffffff; /* On remet un fond blanc pour faire ressortir le conteneur */
+  padding: 4em 20px;
+}
+
+/* On ajoute un titre H2 stylisé comme les autres sections */
+#nous h2 {
+  background-color: #FBC02D;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  border-radius: 5px;
+  margin-top: 0;
+  margin-bottom: 2.5em; /* Plus d'espace avant le contenu */
+}
+
+.nous-container {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.nous-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  
+}
+
+.nous-texte {
+  /* Ajout d'une bordure décorative à gauche */
+  border-left: 4px solid #d32f2f; /* Ligne rouge assortie au site */
+  padding-left: 2em; /* Espace entre la bordure et le texte */
+}
+
+.nous-texte h3 {
+  font-size: 2.2rem; /* Un peu plus grand */
+  color: #333; /* Noir adouci pour le titre */
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  font-family: 'Georgia', serif; /* Police plus élégante pour le titre */
+}
+
+.nous-texte p {
+  font-size: 1.1rem;
+  line-height: 1.8; /* On aère le texte */
+  color: #555; /* Gris plus lisible */
+}
+
+/* --- Styles pour les mobiles --- */
+@media (max-width: 768px) {
+  .nous-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nous-texte {
+    margin-top: 2em;
+    border-left: none; /* On enlève la bordure sur mobile */
+    padding-left: 0;
+    border-top: 4px solid #d32f2f; /* On la met au-dessus du texte */
+    padding-top: 2em;
+  }
+}
+/* --- Section Avis Clients --- */
+#avis {
+  background-color: #fff;
+}
+.avis-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.avis-carte {
+  background-color: #f8f8f8;
+  padding: 2em;
+  border-radius: 8px;
+  border-left: 5px solid #FBC02D; /* Accent jaune */
+  text-align: left;
+}
+.avis-texte {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+}
+.avis-auteur {
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+  margin-top: 1em;
+}
+/* =================================
+   BOUTON RETOUR EN HAUT
+   ================================= */
+#retour-haut {
+  position: fixed;
+  bottom: 95px; 
+  right: 25px; /* Décalé pour ne pas être sur le logo WhatsApp */
+  
+  background-color: #d32f2f; /* Rouge assorti au header */
+  color: white;
+  
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  
+  opacity: 0; /* Caché par défaut */
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+}
+
+/* Classe ajoutée par JavaScript pour le faire apparaître */
+#retour-haut.visible {
+  opacity: 1;
+  visibility: visible;
+}
+/* =================================
+   STYLE DU CARROUSEL GALERIE
+   ================================= */
+#galerie {
+  background-color: #f8f8f8; /* Fond gris clair pour cette section */
+}
+
+.swiper {
+  width: 90%; /* Le carrousel prend 90% de la largeur de la page */
+  max-width: 1200px; /* Mais pas plus de 1200px */
+  height: 500px; /* Hauteur du carrousel */
+  margin: 0 auto; /* Pour le centrer */
+  border-radius: 10px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assure que l'image remplit l'espace sans se déformer */
+}
+
+/* Style des flèches (optionnel) */
+.swiper-button-next, .swiper-button-prev {
+  color: #FFD700; /* Couleur jaune or */
+}
+
+/* Style de la pagination (optionnel) */
+.swiper-pagination-bullet-active {
+  background-color: #FFD700;
+}
+section {
+  /* Ajoute une bordure en haut de chaque section */
+  border-top: 1px solid #eeeeee; /* Ligne grise très claire */
+
+  /* Ajoute de l'espace pour que la ligne et le contenu respirent */
+  padding: 4em 20px;
+  text-align: center;
+}
+
+/* On ne veut pas de bordure sur la toute première section (le Hero) */
+.hero-diallo {
+  border-top: none;
+}
+
+/* On ajuste les titres de section */
+section h2 {
+  background-color: #FBC02D;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  border-radius: 5px;
+  margin-top: 0; /* Important: on retire l'ancienne marge */
+  margin-bottom: 2em; /* Espace entre le titre et les plats */
+}
+/* =================================
+   STYLES RESPONSIVES (MOBILES & TABLETTES)
+   ================================= */
+@media (max-width: 768px) {
+
+  /* --- Header --- */
+  .main-header {
+    flex-direction: column; /* Empile le logo, le menu et la recherche */
+    gap: 20px;
+  }
+
+  /* --- Section Hero --- */
+  .hero-content-diallo h1 {
+    font-size: 2.5rem; /* Réduit la taille du titre */
+  }
+  .hero-content-diallo p {
+    font-size: 1.1rem; /* Réduit la taille du paragraphe */
+  }
+
+  /* --- Grilles des Menus --- */
+  .grid-menu {
+    grid-template-columns: 1fr; /* Une seule colonne pour les plats */
+    gap: 2em; /* Plus d'espace vertical entre les plats */
+  }
+  
+  /* --- Panier flottant --- */
+  .panier-container {
+    /* Réduit la largeur et déplace le panier pour mieux s'adapter */
+    width: auto;
+    left: 15px;
+    right: 15px;
+    top: auto;
+    bottom: 15px;
+  }
+  
+  /* --- Barre de recherche --- */
+  .search-box {
+    width: 100%; /* La barre de recherche prend toute la largeur */
+  }
+}
 
 
 
