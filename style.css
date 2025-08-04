@@ -929,44 +929,104 @@ section h2 {
 /* =================================
    STYLES RESPONSIVES (MOBILES & TABLETTES)
    ================================= */
+/* =================================
+   STYLES RESPONSIVES (FINAUX)
+   Pour tablettes et mobiles (768px et moins)
+   ================================= */
 @media (max-width: 768px) {
 
-  /* --- Header --- */
+  /* --- Header & Recherche --- */
   .main-header {
-    flex-direction: column; /* Empile le logo, le menu et la recherche */
+    flex-direction: column;
     gap: 20px;
+    padding: 15px;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .search-box button {
+    font-size: 14px;
+    padding: 0 10px;
   }
 
   /* --- Section Hero --- */
   .hero-content-diallo h1 {
-    font-size: 2.5rem; /* Réduit la taille du titre */
+    font-size: 2.2rem;
   }
   .hero-content-diallo p {
-    font-size: 1.1rem; /* Réduit la taille du paragraphe */
+    font-size: 1rem;
+  }
+  .btn-diallo {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  /* --- Titres de Section --- */
+  section h2, #nous h2 {
+    font-size: 1.5rem;
+    padding: 0.5em 1em;
   }
 
   /* --- Grilles des Menus --- */
   .grid-menu {
-    grid-template-columns: 1fr; /* Une seule colonne pour les plats */
-    gap: 2em; /* Plus d'espace vertical entre les plats */
+    grid-template-columns: 1fr;
+    gap: 2em;
   }
   
-  /* --- Panier flottant --- */
-  .panier-container {
-    /* Réduit la largeur et déplace le panier pour mieux s'adapter */
-    width: auto;
-    left: 15px;
-    right: 15px;
-    top: auto;
-    bottom: 15px;
+  /* --- Section Nous --- */
+  .nous-container {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* --- Barre de recherche --- */
-  .search-box {
-    width: 100%; /* La barre de recherche prend toute la largeur */
+  .nous-texte {
+    margin-top: 2em;
+    border-left: none;
+    padding-left: 0;
+    border-top: 4px solid #d32f2f;
+    padding-top: 2em;
   }
-}
 
+  /* --- Panier Flottant --- */
+  .panier-container {
+    width: auto;
+    left: 10px;
+    right: 10px;
+    bottom: 15px; /* Relevé pour ne pas être sous le bouton "retour en haut" */
+    top: auto;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  
+  /* --- Footer --- */
+  .footer-contact, .footer-horaires, .footer-paiements {
+    margin-bottom: 20px;
+  }
+  
+  /* --- Boutons Flottants --- */
+  #retour-haut {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    right: 15px;
+    bottom: 85px; /* Positionné au-dessus du bouton WhatsApp */
+  }
+  .whatsapp-float {
+      right: 15px;
+      bottom: 20px;
+  }
+  /* Si vous mettez WhatsApp à gauche */
+  /*
+  .whatsapp-float {
+      left: 15px;
+      bottom: 15px;
+  }
+  #retour-haut {
+      right: 15px;
+      bottom: 15px;
+  }
+  */
+}
 
 
 
