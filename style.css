@@ -54,6 +54,7 @@
   text-align: center;
   padding: 1em;
   box-sizing: border-box;
+  flex-grow: 1;
 }
 
 
@@ -665,7 +666,7 @@ html {
  * Assure que les suggestions apparaissent au-dessus de tout le reste.
 */
 #suggestions {
-  position: absolute;   /* TRÈS IMPORTANT */
+ /* position: absolute; */  /* TRÈS IMPORTANT */
   z-index: 1001;        /* TRÈS IMPORTANT - Met les suggestions au-dessus du menu */
   
   /* --- Styles pour la visibilité --- */
@@ -1027,6 +1028,85 @@ section h2 {
   }
   */
 }
+/* =================================
+   STYLE DU MODAL DE RECHERCHE (Corrigé pour effet Pop-up)
+   ================================= */
 
+/* Le fond sombre qui couvre toute la page */
+.recherche-modal {
+  position: fixed; /* Reste fixé par-dessus tout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+  z-index: 10000; /* Doit être au-dessus de tout le reste */
+  
+  /* Permet de centrer la fenêtre de contenu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  backdrop-filter: blur(4px); /* Effet de flou sur le fond */
+}
 
+/* La fenêtre blanche qui contient les résultats */
+.recherche-modal-contenu {
+  background-color: white;
+  padding: 2em;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px; /* Largeur maximale du pop-up */
+  height: auto; /* La hauteur s'adapte au contenu */
+  max-height: 80vh; /* Mais ne dépasse jamais 80% de la hauteur de l'écran */
+  overflow-y: auto; /* Ajoute une barre de défilement si le contenu est trop long */
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.recherche-modal-contenu h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+/* Le bouton pour fermer */
+.fermer-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+}
+
+/* La grille de résultats à l'intérieur du modal */
+#recherche-resultats.grid-menu {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+}
+
+/* La classe pour cacher/montrer le modal */
+.hidden {
+  display: none !important;
+}
+/* =================================
+   CORRECTION MISE EN PAGE DU MODAL DE RECHERCHE
+   ================================= */
+
+/* On change la grille en flexbox pour mieux centrer les éléments */
+#recherche-resultats.grid-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* C'est la ligne clé qui centre les résultats */
+  gap: 1.5em;
+}
+
+/* On s'assure que les plats dans les résultats gardent une taille fixe */
+#recherche-resultats .plat {
+  flex-basis: 250px; /* Chaque plat aura une largeur de 250px */
+  flex-grow: 0;   /* On empêche le plat de s'agrandir pour remplir l'espace */
+}
