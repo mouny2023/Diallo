@@ -1196,3 +1196,156 @@ section h2 {
   flex-basis: 250px; /* Chaque plat aura une largeur de 250px */
   flex-grow: 0;   /* On empêche le plat de s'agrandir pour remplir l'espace */
 }
+/* ====================================================== */
+/* ESTILOS DEL CHATBOT                  */
+/* ====================================================== */
+
+/* Botón flotante para abrir/cerrar */
+#chat-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #D32F2F; /* Color rojo de tu tema */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9998;
+    transition: transform 0.2s;
+}
+#chat-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor principal del widget de chat */
+.chat-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    
+    /* Efecto de aparición */
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Clase para mostrar el widget */
+.chat-widget.visible {
+    transform: scale(1);
+}
+
+/* Encabezado del chat */
+.chat-header {
+    background-color: #D32F2F;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+#close-chat-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Área de mensajes */
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+}
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+.message.bot {
+    background-color: #e9e9eb;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+.message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto; /* Alinea a la derecha */
+    border-bottom-right-radius: 4px;
+}
+
+/* Área de "input" (botones de preguntas) */
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.question-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+.question-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+/* ====================================================== */
+/* CORRECCIÓN DE POSICIÓN PARA BOTONES FLOTANTES */
+/* ====================================================== */
+
+/* Botón del Chat (abajo de todo) */
+#chat-toggle-btn {
+    right: 20px;
+    bottom: 20px;
+    z-index: 1001; /* Aseguramos que esté por encima del de subir */
+}
+
+/* Botón de Subir (justo encima del de chat) */
+#retour-haut {
+    right: 25px; /* Ligeramente diferente para alinear el centro */
+    bottom: 90px; /* 20px de base + 60px del botón de chat + 10px de espacio */
+    z-index: 1000;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    #retour-haut {
+      right: 15px;
+      bottom: 90px;
+    }
+    #chat-toggle-btn {
+      right: 15px;
+      bottom: 20px;
+    }
+}

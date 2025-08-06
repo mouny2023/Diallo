@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración de Productos</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f5f5f5; }
+        h1, h2 { text-align: center; }
+        form { max-width: 600px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #eee; }
+    </style>
+</head>
+<body>
+    <h1 id="form-title">Añadir Nuevo Producto</h1>
+    <form id="form-add-product">
+        <input type="hidden" id="edit-id">
+
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="precio">Precio (solo números):</label>
+        <input type="number" id="precio" name="precio" required>
+
+        <label for="imagen">Ruta de la Imagen (ej: images/nuevo-plato.png):</label>
+        <input type="text" id="imagen" name="imagen" required>
+        
+        <label for="categorie">Categoría:</label>
+        <select id="categorie" name="categorie" required>
+            <option value="plats">Plats</option>
+            <option value="pates">Pâtes</option>
+            <option value="boissons">Boissons</option>
+            <option value="desserts">Desserts</option>
+            <option value="petit-dejeuner">Petit-déjeuner</option>
+            <option value="menu-weekend">Menu du Weekend</option>
+        </select>
+
+        <button type="submit" id="submit-button">Guardar Producto</button>
+        <button type="button" id="cancel-edit-button" style="display: none; background-color: #6c757d;">Cancelar Edición</button>
+    </form>
+
+    <h2>Productos Actuales</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista-productos">
+            </tbody>
+    </table>
+
+    <script src="admin.js"></script>
+        <script src="menu-loader.js"></script>
+
+</body>
+</html>

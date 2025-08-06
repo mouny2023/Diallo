@@ -115,9 +115,9 @@
 
 <section id="plats">
   <h2 data-aos="fade-up">Nos Plats</h2>
-  <div class="grid-menu">
+  <div id="plats-container" class="grid-menu">
 
-    <div class="plat" ">
+    <div class="plat" >
       <img src="images/Pâte rouge + sauce.png" alt="Pâte rouge + sauce">
       <h3>Pâte rouge + sauce</h3>
       <p class="prix-unite">Prix : 1500 FCFA</p>
@@ -325,7 +325,7 @@
 </section>
 <section id="pates">
   <h2 data-aos="fade-up">Nos Pâtes</h2>
-  <div class="grid-menu">
+  <div id="pates-container" class="grid-menu">
 
     <div class="plat">
       <img src="images/pate a la bolongaise.png" alt="Pâtes à la bolognaise">
@@ -380,8 +380,10 @@
 
 <section id="boissons">
   
+  <section id="boissons">
   <h2 data-aos="fade-up">Nos Boissons</h2>
-  <div class="grid-menu">
+  <div id="boissons-container" class="grid-menu">
+
 
    <div class="plat">
       <img src="images/fanta.png" alt="Fanta">
@@ -582,7 +584,8 @@
 </section>
 <section id="desserts">
   <h2 data-aos="fade-up">Nos Desserts</h2>
-  <div class="grid-menu">
+  <div id="desserts-container" class="grid-menu">
+
 
     <div class="plat">
       <img src="images/gateau+chocolat.png" alt="Gâteau au chocolat">
@@ -628,7 +631,8 @@
 
 <section id="petit-dejeuner">
   <h2 data-aos="fade-up">Petit déjeuner</h2>
-  <div class="grid-menu">
+  <div id="petit-dejeuner-container" class="grid-menu">
+
 
     <!-- Variante 1 -->
     <div class="plat">
@@ -667,7 +671,7 @@
 
 <section id="menu-principal">
   <h2 data-aos="fade-up">Menu du jour</h2>
-  <div class="grid-menu">
+  <div id="menu-principal-container" class="grid-menu">
 
     <div class="plat">
       <img src="images/pates aux sardines.png" alt="Spaghetti aux sardines">
@@ -724,7 +728,8 @@
 
 <section id="menu">
   <h2 data-aos="fade-up">MENU DU WEEKEND</h2>
-  <div class="grid-menu">
+  <div id="menu-weekend-container" class="grid-menu">
+
 
     <div class="plat">
       <img src="images/poisson braisé-atiéké.png" alt="Plat Weekend 1">
@@ -903,6 +908,9 @@
 <script src="search.js"></script> 
 <script src="carousel.js"></script>
 <script src="ui.js"></script>
+<script src="menu-loader.js"></script>
+<script src="chatbot.js"></script>
+
 
 <script>
   AOS.init({
@@ -910,6 +918,17 @@
       once: false
   });
 </script>
+<div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+        <h3>¿Necesitas ayuda?</h3>
+        <button id="close-chat-btn">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+        </div>
+    <div id="chat-input-area" class="chat-input-area">
+        </div>
+</div>
 
+<button id="chat-toggle-btn">💬</button>
 </body>
 </html>
