@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": 1, "nom": "Pâte rouge + sauce", "prix": 1500, "image": "images/Pâte rouge + sauce.png",
+    "categorie": "plats"
+  },
+  {
+    "id": 2, "nom": "Riz blanc + sauce tomate", "prix": 1300, "image": "images/Riz blanc + sauce tomate.png",
+    "categorie": "plats"
+  },
+  {
+    "id": 3, "nom": "Couscous + viande", "prix": 1800, "image": "images/Couscous + viande.png",
+    "categorie": "plats"
+  },
+  {
+    "id": 13, "nom": "Fanta (50cl)", "prix": 400, "image": "images/fanta.png",
+    "categorie": "boissons"
+  },
+  {
+    "id": 14, "nom": "Coca-Cola (50cl)", "prix": 400, "image": "images/coca.png",
+    "categorie": "boissons"
+  },
+  {
+    "id": 19, "nom": "Gâteau au chocolat", "prix": 1000, "image": "images/gateau+chocolat.png",
+    "categorie": "desserts"
+  },
+  {
+    "id": 20, "nom": "Tiramisu", "prix": 1200, "image": "images/tiramisu.png",
+    "categorie": "desserts"
+  }
+]
