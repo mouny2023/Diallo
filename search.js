@@ -1,86 +1,92 @@
+// Fichier search.js - VERSIÓN FINAL CORREGIDA
+
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('recherche-input');
-  const rechercheModal = document.getElementById('recherche-modal');
-  const fermerRechercheModal = document.getElementById('fermer-recherche-modal');
-  const conteneurResultats = document.getElementById('recherche-resultats');
-  
-  let tousLesPlatsHTML = {};
-  let listeProduits = [];
+    const searchInput = document.getElementById('recherche-input');
+    const searchButton = document.getElementById('recherche-btn');
+    const searchModal = document.getElementById('recherche-modal');
+    const resultsContainer = document.getElementById('recherche-resultats');
+    const closeModalButton = document.getElementById('fermer-recherche-modal');
 
-  // Étape 1 : On récupère la liste des noms depuis le backend
-  fetch('http://localhost:3000/api/produits')
-    .then(res => {
-      if (!res.ok) throw new Error('Erreur réseau');
-      return res.json();
-    })
-    .then(data => {
-      listeProduits = data;
-      // On associe à chaque produit son HTML complet trouvé sur la page
-      listeProduits.forEach(produit => {
-        const platOriginal = Array.from(document.querySelectorAll('.plat h3')).find(h3 => h3.textContent.trim() === produit.nom)?.closest('.plat');
-        if (platOriginal) {
-          produit.html = platOriginal.outerHTML;
-        }
-      });
-    })
-    .catch(error => console.error("Impossible de charger la liste des produits:", error));
-
-
-  // Fonction qui affiche les résultats dans le modal
-  function rechercher() {
-    const query = input.value.trim().toLowerCase();
-
-    if (query.length > 1) { // On affiche le modal si on a au moins 2 lettres
-      rechercheModal.classList.remove('hidden');
-    } else {
-      rechercheModal.classList.add('hidden');
-      return;
+    if (!searchInput || !searchButton || !searchModal || !resultsContainer || !closeModalButton) {
+        console.error("Un ou plusieurs éléments HTML de la recherche sont manquants.");
+        return;
     }
     
-    conteneurResultats.innerHTML = ''; // On vide les anciens résultats
-
-    const resultats = listeProduits.filter(produit => 
-      produit.nom.toLowerCase().includes(query)
-    );
-
-    if (resultats.length > 0) {
-      resultats.forEach(produit => {
-        // On insère directement le HTML complet et original du plat
-        if (produit.html) {
-          conteneurResultats.innerHTML += produit.html;
+    const fetchProducts = async () => {
+        try {
+            // ✅ LA CORRECCIÓN ESTÁ AQUÍ: La URL correcta es '/api/produits' SIN .json
+            const response = await fetch('/api/produits'); 
+            
+            if (response.status === 404) {
+                 throw new Error('Erreur 404: La route /api/produits est introuvable. Vérifiez votre server.js');
+            }
+            if (!response.ok) {
+                throw new Error('Erreur réseau lors de la récupération des produits.');
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("Impossible de charger les produits:", error);
+            resultsContainer.innerHTML = `<p>${error.message}</p>`;
+            return [];
         }
-      });
-      
-      // On active les boutons (+, -, Ajouter au panier) sur les nouveaux résultats
-      if (window.PanierManager) {
-        PanierManager.activerBoutons(conteneurResultats);
-      }
-    } else {
-      conteneurResultats.innerHTML = '<p style="text-align: center;">Aucun produit trouvé.</p>';
-    }
-  }
-  
-  // --- Écouteurs d'événements ---
+    };
 
-  let delaiRecherche;
-  input.addEventListener('input', () => {
-    clearTimeout(delaiRecherche);
-    delaiRecherche = setTimeout(rechercher, 300); // Attend 300ms après la dernière frappe
-  });
+    const performSearch = async () => {
+        const query = searchInput.value.trim().toLowerCase();
+        if (query.length === 0) return;
 
-  // Pour fermer le modal
-  if (fermerRechercheModal) {
-    fermerRechercheModal.addEventListener('click', () => {
-      rechercheModal.classList.add('hidden');
+        const allProducts = await fetchProducts();
+        if (allProducts.length === 0 && resultsContainer.innerHTML !== '') return;
+
+        const filteredProducts = allProducts.filter(product => 
+            product && product.nom && product.nom.toLowerCase().includes(query)
+        );
+
+        displayResults(filteredProducts);
+    };
+
+    const displayResults = (products) => {
+        resultsContainer.innerHTML = '';
+
+        if (products.length === 0) {
+            resultsContainer.innerHTML = '<p>Aucun produit ne correspond à votre recherche.</p>';
+        } else {
+            products.forEach(produit => {
+                // On s'assure que le produit a bien un prix et une image avant de l'afficher
+                const prix = produit.prix || '?';
+                const image = produit.image || 'images/placeholder.png'; // Prévoyez une image par défaut
+
+                const productHTML = `
+                    <div class="plat">
+                      <img src="${image}" alt="${produit.nom}">
+                      <h3>${produit.nom}</h3>
+                      <p class="prix-unite">Prix : ${prix} FCFA</p>
+                      <div class="quantite-wrapper">
+                        <button class="moins">−</button>
+                        <input type="text" class="quantite" value="1" readonly>
+                        <button class="plus">+</button>
+                      </div>
+                      <button class="ajouter-panier">Ajouter au panier</button>
+                    </div>
+                `;
+                resultsContainer.innerHTML += productHTML;
+            });
+
+            if (window.bindAllDynamicEvents) {
+                window.bindAllDynamicEvents(resultsContainer);
+            } else {
+                console.error("Erreur: La fonction bindAllDynamicEvents n'est pas trouvée.");
+            }
+        }
+        searchModal.classList.remove('hidden');
+    };
+
+    searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') performSearch();
     });
-  }
-
-  if (rechercheModal) {
-    rechercheModal.addEventListener('click', (e) => {
-      // Si on clique sur le fond et non sur le contenu
-      if (e.target === rechercheModal) {
-        rechercheModal.classList.add('hidden');
-      }
+    closeModalButton.addEventListener('click', () => searchModal.classList.add('hidden'));
+    searchModal.addEventListener('click', (event) => {
+        if (event.target === searchModal) searchModal.classList.add('hidden');
     });
-  }
 });

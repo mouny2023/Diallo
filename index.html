@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 <!-- ✅ HEADER DU SITE -->
 <header class="main-header">
   <div class="logo">
@@ -847,7 +846,6 @@
   <p style="margin-top: 20px;">© 2025 Café Resto Chez Diallo. Tous droits réservés.</p>
 </footer>
 
-<script src="carrito.js"></script> 
 <!-- 1. MODAL FORMULAIRE -->
 <div id="panier-modal" class="hidden modal">
   <div class="modal-content">
@@ -888,25 +886,6 @@
 <a href="https://wa.me/22961494563" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
   <img src="/images/whatsapp-icon.png" alt="WhatsApp" />
 </a>
-
-<!-- 3. VIDER PANIER -->
-<script src="carrito.js"></script> <!-- ou le nom de ton fichier JS -->
-<script src="search.js" defer></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-      AOS.init({
-          duration: 800, // Durée de l'animation en millisecondes
-          once: false  // L'animation ne se joue qu'une seule fois par élément
-      });
-    </script>
-<script src="carousel.js"></script>
-<script src="ui.js"></script>
-<script src="carrito.js"></script>
-<script src="search.js" defer></script>
-
-
-
 <a href="#" id="retour-haut" title="Retour en haut">↑</a>
 <div id="recherche-modal" class="recherche-modal hidden">
   <div class="recherche-modal-contenu">
@@ -916,5 +895,21 @@
       </div>
   </div>
 </div>
+<!-- 3. VIDER PANIER -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script src="carrito.js"></script> 
+<script src="search.js"></script> 
+<script src="carousel.js"></script>
+<script src="ui.js"></script>
+
+<script>
+  AOS.init({
+      duration: 800,
+      once: false
+  });
+</script>
+
 </body>
 </html>

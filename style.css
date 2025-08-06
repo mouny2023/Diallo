@@ -36,7 +36,16 @@
   border-radius: 5px;
   margin-top: 3em; /* ✅ AJOUTE CETTE LIGNE */
 }
-
+.plat .ajouter-panier {
+  background-color: #388E3C;
+  padding: 12px 20px;
+  width: 100%;
+  font-size: 1em;
+  margin-top: 10px;
+}
+.plat .ajouter-panier:hover {
+  background-color: #2e7d32;
+}
 
     .grid-menu {
       display: grid;
@@ -83,22 +92,65 @@
 
 
 
-    button {
-      background-color: #388E3C;
-      color: white;
-      border: none;
-/*padding: 15px 0px; */
-     border-radius: 5px;
-      cursor: pointer;
-      margin-top: 0.5em;
-    }
+/* style.css */
 
+/* Règle générale TRÈS simple pour TOUS les boutons */
+button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  color: white; /* Color de texto por defecto para todos */
+}
+/* ===== ESTILOS ADICIONALES PARA BOTONES FINALES ===== */
+
+/* 1. Para los botones del carrito flotante (Vider, Finaliser) */
+.panier-container button {
+  background-color: #D32F2F;
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  /* ✅ SOLUCIÓN AL ESPACIADO: Se aplica un margen a cada botón */
+  margin: 4px; 
+}
+.panier-container button:hover {
+  background-color: #B71C1C;
+}
+
+
+/* 2. Para los botones del modal/formulario final (Complétez votre commande) */
+
+/* Contenedor de los botones para alinearlos */
+.btns-modal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Botón principal de envío */
+#envoyer-commande {
+  background-color: #388E3C; /* Verde, como "Ajouter au panier" */
+  color: white;
+  padding: 12px 20px;
+  flex-grow: 1; /* Ocupa el espacio disponible */
+  margin-right: 10px; /* Espacio con el botón de cancelar */
+}
+#envoyer-commande:hover {
+  background-color: #2e7d32;
+}
+
+/* Botón secundario para cancelar */
+#fermer-modal {
+  background-color: red; /* Gris */
+  color: white;
+  padding: 12px 20px;
+}
+#fermer-modal:hover {
+  background-color: #5a6268;
+}
     button:hover {
       background-color: #2e7d32;
-    }
-
-    #menu-principal {
-     /* background-color: #FFF8E1;*/
     }
 
     .menu-list {
@@ -314,12 +366,16 @@ height: 60px;
   padding: 2px 6px;
   border-radius: 50%;
 }
-.quantite-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 10px 0;
+.quantite-wrapper button {
+  background-color: #4CAF50;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px; /* Centra el símbolo verticalmente */
+  padding: 0;
+}
+.quantite-wrapper button:hover {
+  background-color: #45a049;
 }
 
 .quantite-wrapper button {
@@ -479,6 +535,15 @@ html {
   width: 250px;
   border-radius: 10px;
 }
+#vider-panier, #ouvrir-modal {
+  background-color: #D32F2F;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+#vider-panier:hover, #ouvrir-modal:hover {
+  background-color: #B71C1C;
+}
 
 
 .hidden {
@@ -566,6 +631,7 @@ html {
   cursor: pointer;
   margin-top: 0.5em;
   width: 100%;
+      flex-grow: 0;
 }
 .btn-commande {
   background-color: #388E3C;
@@ -846,7 +912,7 @@ html {
    ================================= */
 #retour-haut {
   position: fixed;
-  bottom: 95px; 
+  bottom: 20px; 
   right: 25px; /* Décalé pour ne pas être sur le logo WhatsApp */
   
   background-color: #d32f2f; /* Rouge assorti au header */
@@ -892,17 +958,37 @@ html {
 .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Assure que l'image remplit l'espace sans se déformer */
+  object-fit: cover; /* Mantenemos 'cover' para las demás */
 }
 
 /* Style des flèches (optionnel) */
-.swiper-button-next, .swiper-button-prev {
-  color: #FFD700; /* Couleur jaune or */
+
+/* ===== ESTILOS PERSONALIZADOS PARA EL CARRUSEL (SWIPER) ===== */
+
+/* --- Color de las flechas de navegación (Izquierda y Derecha) --- */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #FBC02D; /* Color amarillo de tu tema */
 }
 
-/* Style de la pagination (optionnel) */
-.swiper-pagination-bullet-active {
-  background-color: #FFD700;
+/* Opcional: Cambiar el color a blanco al pasar el mouse por encima */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #ffffff; 
+}
+
+/* --- Color de los puntos de paginación (los redonditos de abajo) --- */
+
+/* Color del punto ACTIVO (el de la imagen actual) */
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #FBC02D; /* Color amarillo de tu tema */
+  transform: scale(1.2); /* Lo hacemos un poco más grande para que destaque */
+}
+
+/* Color de los puntos INACTIVOS */
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: #ffffff; /* Color blanco */
+  opacity: 0.7; /* Le damos un poco de transparencia para que no resalte tanto */
 }
 section {
   /* Ajoute une bordure en haut de chaque section */
