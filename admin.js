@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const API_URL = location.hostname.includes('localhost')
   ? 'http://localhost:3000/api/produits'
-  : 'https://resto-diallo-api.onrender.com/api/produits';
+  : 'https://diallo-wnaw.onrender.com';
 
 const response = await fetch(API_URL);
 

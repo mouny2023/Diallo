@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ✅ IMPORTANT ! REMPLACE CETTE LIGNE PAR L'URL DE TON SERVEUR SUR RENDER
-    const API_URL = 'https://resto-diallo-api.onrender.com/api/produits';
+    const API_URL = 'https://diallo-wnaw.onrender.com';
 
     const searchInput = document.getElementById('recherche-input');
     const searchButton = document.getElementById('recherche-btn');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // On utilise la variable API_URL pour contacter le serveur sur Render
             const API_URL = location.hostname.includes('localhost')
   ? 'http://localhost:3000/api/produits'
-  : 'https://resto-diallo-api.onrender.com/api/produits';
+  : 'https://diallo-wnaw.onrender.com';
 
 const response = await fetch(API_URL);
 
