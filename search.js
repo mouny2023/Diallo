@@ -1,6 +1,8 @@
-// Fichier search.js - VERSIÓN FINAL CORREGIDA
-
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ✅ IMPORTANT ! REMPLACE CETTE LIGNE PAR L'URL DE TON SERVEUR SUR RENDER
+    const API_URL = 'https://resto-diallo-api.onrender.com/api/produits';
+
     const searchInput = document.getElementById('recherche-input');
     const searchButton = document.getElementById('recherche-btn');
     const searchModal = document.getElementById('recherche-modal');
@@ -14,19 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const fetchProducts = async () => {
         try {
-            // ✅ LA CORRECCIÓN ESTÁ AQUÍ: La URL correcta es '/api/produits' SIN .json
-            const response = await fetch('/api/produits'); 
+            // On utilise la variable API_URL pour contacter le serveur sur Render
+            const response = await fetch(API_URL); 
             
-            if (response.status === 404) {
-                 throw new Error('Erreur 404: La route /api/produits est introuvable. Vérifiez votre server.js');
-            }
             if (!response.ok) {
-                throw new Error('Erreur réseau lors de la récupération des produits.');
+                throw new Error('Erreur réseau ou le serveur ne répond pas.');
             }
             return await response.json();
         } catch (error) {
             console.error("Impossible de charger les produits:", error);
-            resultsContainer.innerHTML = `<p>${error.message}</p>`;
+            resultsContainer.innerHTML = `<p>Impossible de charger le menu. Veuillez réessayer plus tard.</p>`;
             return [];
         }
     };
@@ -36,7 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (query.length === 0) return;
 
         const allProducts = await fetchProducts();
-        if (allProducts.length === 0 && resultsContainer.innerHTML !== '') return;
+        if (allProducts.length === 0) {
+            searchModal.classList.remove('hidden');
+            return;
+        }
 
         const filteredProducts = allProducts.filter(product => 
             product && product.nom && product.nom.toLowerCase().includes(query)
@@ -52,9 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsContainer.innerHTML = '<p>Aucun produit ne correspond à votre recherche.</p>';
         } else {
             products.forEach(produit => {
-                // On s'assure que le produit a bien un prix et une image avant de l'afficher
                 const prix = produit.prix || '?';
-                const image = produit.image || 'images/placeholder.png'; // Prévoyez une image par défaut
+                const image = produit.image || 'images/placeholder.png';
 
                 const productHTML = `
                     <div class="plat">
