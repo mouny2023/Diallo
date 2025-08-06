@@ -8,13 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let allProducts = [];
 
+    // ✅ AJOUTÉ : L'URL de base pour toutes les requêtes
+    const API_BASE_URL = location.hostname.includes('localhost')
+        ? 'http://localhost:3000'
+        : 'https://diallo-wnaw.onrender.com';
+
     async function fetchAndDisplayProducts() {
         try {
-            const API_URL = location.hostname.includes('localhost')
-  ? 'http://localhost:3000/api/produits'
-  : 'https://diallo-wnaw.onrender.com';
-
-const response = await fetch(API_URL);
+            // ✅ CORRIGÉ : L'URL est maintenant complète
+            const response = await fetch(`${API_BASE_URL}/api/produits`);
 
             allProducts = await response.json();
             listaProductos.innerHTML = '';
@@ -56,11 +58,11 @@ const response = await fetch(API_URL);
             categorie: document.getElementById('categorie').value
         };
 
-        let url = '/api/produits';
+        let url = `${API_BASE_URL}/api/produits`; // ✅ CORRIGÉ
         let method = 'POST';
 
         if (id) {
-            url = `/api/produits/${id}`;
+            url = `${API_BASE_URL}/api/produits/${id}`; // ✅ CORRIGÉ
             method = 'PUT';
         }
 
@@ -86,7 +88,8 @@ const response = await fetch(API_URL);
         if (target.classList.contains('delete-btn')) {
             const isConfirmed = confirm('¿Estás seguro de que quieres borrar este producto?');
             if (isConfirmed) {
-                const response = await fetch(`/api/produits/${id}`, { method: 'DELETE' });
+                // ✅ CORRIGÉ
+                const response = await fetch(`${API_BASE_URL}/api/produits/${id}`, { method: 'DELETE' });
                 if (response.ok) {
                     alert('¡Producto borrado con éxito!');
                     fetchAndDisplayProducts();

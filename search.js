@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ✅ IMPORTANT ! REMPLACE CETTE LIGNE PAR L'URL DE TON SERVEUR SUR RENDER
-    const API_URL = 'https://diallo-wnaw.onrender.com';
+    const API_URL = 'https://diallo-wnaw.onrender.com/api/produits'; // L'URL de base est maintenant complète
 
     const searchInput = document.getElementById('recherche-input');
     const searchButton = document.getElementById('recherche-btn');
@@ -16,13 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const fetchProducts = async () => {
         try {
-            // On utilise la variable API_URL pour contacter le serveur sur Render
-            const API_URL = location.hostname.includes('localhost')
-  ? 'http://localhost:3000/api/produits'
-  : 'https://diallo-wnaw.onrender.com';
+            // ✅ CORRIGÉ : L'URL est maintenant complète.
+            const urlToFetch = location.hostname.includes('localhost')
+                ? 'http://localhost:3000/api/produits'
+                : 'https://diallo-wnaw.onrender.com/api/produits';
 
-const response = await fetch(API_URL);
-
+            const response = await fetch(urlToFetch); // On utilise la bonne URL
             
             if (!response.ok) {
                 throw new Error('Erreur réseau ou le serveur ne répond pas.');
