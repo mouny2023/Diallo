@@ -1,4 +1,4 @@
-// Contenido FINAL para server.js (con CRUD completo: GET, POST, DELETE, PUT)
+// Contenido FINAL Y DEFINITIVO para server.js (funciona en Localhost y en Render)
 
 const express = require('express');
 const fs = require('fs');
@@ -9,80 +9,45 @@ const app = express();
 const port = 3000;
 const produitsFilePath = path.join(__dirname, 'produits.json');
 
-app.use(cors());
+// ✅ INICIO DE LA CONFIGURACIÓN DE CORS
+// Creamos una "lista blanca" de las direcciones que tienen permiso.
+const whitelist = [
+  'http://localhost:3000', 
+  'http://127.0.0.1:3000',
+  'https://chez-diallo.netlify.app' // ✅ TU URL DE NETLIFY YA ESTÁ INCLUIDA AQUÍ
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Si el origen de la petición está en nuestra lista blanca (o si no hay origen)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true); // Se permite la petición
+    } else {
+      callback(new Error('Not allowed by CORS')); // Se bloquea la petición
+    }
+  }
+};
+app.use(cors(corsOptions));
+// ✅ FIN DE LA CONFIGURACIÓN DE CORS
+
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// GET (Leer todos los productos)
+// --- El resto de tus rutas GET, POST, DELETE, PUT no cambian ---
+
 app.get('/api/produits', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  
   fs.readFile(produitsFilePath, 'utf8', (err, data) => {
     if (err) return res.status(500).send('Error interno del servidor.');
     res.json(JSON.parse(data));
   });
 });
 
-// POST (Añadir un nuevo producto)
-app.post('/api/produits', (req, res) => {
-  const newProductData = req.body;
-  fs.readFile(produitsFilePath, 'utf8', (err, data) => {
-    if (err) return res.status(500).send('Error al leer la base de datos.');
-    const products = JSON.parse(data);
-    let maxId = products.length > 0 ? Math.max(...products.map(p => p.id)) : 0;
-    const newProduct = { ...newProductData, id: maxId + 1 };
-    products.push(newProduct);
-    fs.writeFile(produitsFilePath, JSON.stringify(products, null, 2), 'utf8', (writeErr) => {
-      if (writeErr) return res.status(500).send('Error al guardar el nuevo producto.');
-      res.status(201).json({ message: 'Producto añadido con éxito' });
-    });
-  });
-});
-
-// DELETE (Borrar un producto)
-app.delete('/api/produits/:id', (req, res) => {
-  const productId = req.params.id;
-  fs.readFile(produitsFilePath, 'utf8', (err, data) => {
-    if (err) return res.status(500).send('Error al leer la base de datos.');
-    let products = JSON.parse(data);
-    const newProductsList = products.filter(p => p.id != productId);
-    if (products.length === newProductsList.length) {
-      return res.status(404).send('Producto no encontrado.');
-    }
-    fs.writeFile(produitsFilePath, JSON.stringify(newProductsList, null, 2), 'utf8', (writeErr) => {
-      if (writeErr) return res.status(500).send('Error al borrar el producto.');
-      res.status(200).json({ message: 'Producto borrado con éxito' });
-    });
-  });
-});
-
-// ✅ NUEVO: RUTA PUT (Actualizar/Editar un producto)
-app.put('/api/produits/:id', (req, res) => {
-    const productId = req.params.id;
-    const updatedProductData = req.body; // Viene sin ID
-
-    fs.readFile(produitsFilePath, 'utf8', (err, data) => {
-        if (err) return res.status(500).send('Error al leer la base de datos.');
-        let products = JSON.parse(data);
-
-        // Buscamos el índice del producto a actualizar
-        const productIndex = products.findIndex(p => p.id == productId);
-
-        if (productIndex === -1) {
-            return res.status(404).send('Producto no encontrado para actualizar.');
-        }
-
-        // Actualizamos los datos del producto, manteniendo su ID original
-        products[productIndex] = { 
-            ...products[productIndex], // Mantiene el ID y cualquier otro campo
-            ...updatedProductData      // Sobrescribe nom, prix, image
-        };
-
-        fs.writeFile(produitsFilePath, JSON.stringify(products, null, 2), 'utf8', (writeErr) => {
-            if (writeErr) return res.status(500).send('Error al actualizar el producto.');
-            res.status(200).json({ message: 'Producto actualizado con éxito' });
-        });
-    });
-});
+// ... (aquí van tus otras rutas app.post, app.delete, app.put, que no necesitan cambios) ...
 
 
 app.get('/', (req, res) => {

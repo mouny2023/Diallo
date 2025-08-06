@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAndDisplayProducts() {
         try {
-            const response = await fetch('/api/produits');
+            const API_URL = location.hostname.includes('localhost')
+  ? 'http://localhost:3000/api/produits'
+  : 'https://resto-diallo-api.onrender.com/api/produits';
+
+const response = await fetch(API_URL);
+
             allProducts = await response.json();
             listaProductos.innerHTML = '';
             allProducts.forEach(product => {
