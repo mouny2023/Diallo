@@ -1349,3 +1349,50 @@ section h2 {
       bottom: 20px;
     }
 }
+/* Style pour les petits écrans */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 50px; /* Rendre le bouton plus petit */
+    height: 50px;
+    bottom: 20px; /* Le rapprocher du bas de l'écran */
+    right: 20px; /* Le rapprocher du bord droit de l'écran */
+    font-size: 25px; /* Réduire la taille de l'icône */
+  }
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
+    margin: 20px 0; /* Réduit aussi la marge */
+  }
+}
+
+/* Vous pouvez même cibler des écrans encore plus petits si nécessaire */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5em; /* Une taille encore plus petite pour les très petits téléphones */
+  }
+}
+@media (max-width: 768px) {
+  /* Empiler les éléments du footer verticalement */
+  #footer-contact {
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments */
+  }
+
+  /* Les sections de contact et de carte prennent toute la largeur */
+  .footer-contact, .section-map {
+    flex: 1 1 100%;
+    margin: 10px 0;
+    text-align: center; /* Centre le texte */
+  }
+
+  /* Le conteneur de la carte */
+  .map-container iframe {
+    width: 100%; /* S'assure que la carte ne dépasse pas */
+  }
+  
+  /* Les icônes de paiement */
+  .paiement-icones img {
+    max-width: 50px; /* Réduit la taille des icônes */
+  }
+}
