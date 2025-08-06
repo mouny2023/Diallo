@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
     
     // ✅ ¡IMPORTANTE! REEMPLAZA ESTA LÍNEA CON LA URL DE TU SERVIDOR EN RENDER
-  const API_URL = location.hostname.includes('localhost')
-        ? 'http://localhost:3000/api/produits'
-        : 'https://resto-diallo-api.onrender.com/api/produits';
+ const API_URL = 'https://resto-diallo-api.onrender.com/api/produits'; // o la URL que Render te dé
+
     // Obtenemos los contenedores de cada sección
     const containers = {
         plats: document.getElementById('plats-container'),
