@@ -1,5 +1,4 @@
-
-    body {
+body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #fff;
@@ -424,10 +423,17 @@ height: 60px;
 html {
   scroll-behavior: smooth;
 }
+
+/* agrega efecto parallax a la seccion hero */
+
+
+
+
 .hero {
   background-image: url('images/hero.jpg'); /* ou une photo de ton resto */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* <-- Efecto parallax */
   color: white;
   text-align: center;
   padding: 100px 20px;
@@ -1394,5 +1400,27 @@ section h2 {
   /* Les icônes de paiement */
   .paiement-icones img {
     max-width: 50px; /* Réduit la taille des icônes */
+  }
+}
+/* Estilos para el footer responsive */
+.footer-contact {
+  display: flex;
+  flex-direction: column; /* Apile les éléments verticalement */
+  align-items: center; /* Centre les éléments */
+  margin-bottom: 20px; /* Espace entre les sections */
+}
+@media (max-width: 768px) {
+  .footer-contact {
+    text-align: center; /* Centre le texte sur les petits écrans */
+  }
+  .footer-contact p, .footer-contact a {
+    margin: 5px 0; /* Réduit l'espace entre les éléments */
+  }
+}
+/* h2 responsive */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
+    margin: 20px 0; /* Réduit aussi la marge */
   }
 }
