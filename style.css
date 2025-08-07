@@ -1,9 +1,12 @@
 body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #222;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+  box-sizing: border-box; /* Para que el padding y el border no sumen ancho */
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
 
     header {
       background-color: #D32F2F;
@@ -1430,24 +1433,6 @@ section h2 {
     max-width: 50px; /* Réduit la taille des icônes */
   }
 }
-/*<button id="recherche-btn">🔍</button>*/
-/* Responsive pour le bouton de recherche */
-@media (max-width: 400px) {
-  #recherche-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #D32F2F; /* Rouge assorti au header */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000; /* Assure qu'il est au-dessus de tout */
-  }
-}
-/*<h2</h2> para todos los h2 responsive para redmi */ 
 @media (max-width: 400px) {
   h2 {
     font-size: 1.4em; /* Ajuste adicional para pantallas muy pequeñas */
@@ -1463,10 +1448,7 @@ section h2 {
     flex: 1; /* El input ocupa todo el espacio disponible */
     font-size: 14px; /* Texto un poco más pequeño */
   }
-  .search-box button {
-    padding: 0 10px; /* Botón más pequeño */
-    font-size: 16px; /* Icono un poco más grande */
-  }
+ 
 }/* Corrección para el modal de búsqueda en móviles */
 @media (max-width: 400px) {
   .recherche-modal-contenu {
@@ -1479,3 +1461,522 @@ section h2 {
     flex-basis: 100%; /* Cada platillo ocupa toda la fila */
   }
 }
+/* Trouver l'élément qui cause le défilement horizontal */
+@media (max-width: 400px) {
+  .swiper {
+    width: 100%; /* Le carrousel prend toute la largeur de l'écran */
+    height: 300px; /* Hauteur réduite pour les petits écrans */
+  }
+  .swiper-slide img {
+    object-fit: cover; /* Assure que l'image couvre bien le slide */
+  }
+}
+/* Ajustements pour le carrousel sur mobiles */
+@media (max-width: 400px) {
+  .swiper {
+    width: 100%; /* Le carrousel prend toute la largeur de l'écran */
+    height: 300px; /* Hauteur réduite pour les petits écrans */
+  }
+  .swiper-slide img {
+    object-fit: cover; /* Assure que l'image couvre bien le slide */
+  }
+}
+/*ajuste de responsive para todas las secciones responsive para todo tipo de celular pantalla etc */
+@media (max-width: 400px){
+
+  section {
+    padding: 2em 10px; /* Moins d'espace sur les côtés */
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  section h2 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+    padding: 0.5em 1em; /* Moins de padding */
+    margin-bottom: 1.5em; /* Moins d'espace entre le titre et le contenu */
+  }
+  section h2 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+    padding: 0.5em 1em; /* Moins de padding */
+
+
+    margin-bottom: 1.5em; /* Moins d'espace entre le titre et le contenu */
+  }
+  .grid-menu {
+    grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+    gap: 1.5em; /* Espace entre les éléments */
+  }
+  .plat {
+    flex-basis: 100%; /* Chaque plat prend toute la largeur */
+    max-width: none; /* Pas de limite de largeur */
+  }
+  .hero-content-diallo h1 {
+    font-size: 2rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 1rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 10px 20px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .nous-container {
+    flex-direction: column; /* Empile les éléments verticalement */
+    text-align: center; /* Centre le texte */
+  }
+  .nous-image img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+  }
+  .nous-texte {
+    margin-top: 1em; /* Espace entre l'image et le texte */
+    border-left: none; /* Pas de bordure sur les petits écrans */
+    padding-left: 0; /* Pas de padding à gauche */
+    border-top: 4px solid #d32f2f; /* Bordure en haut pour les petits écrans */
+    padding-top: 1em; /* Padding en haut */
+  }
+  .nous-texte h3 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .nous-texte p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+    line-height: 1.5; /* Aération du texte */
+  }
+  .avis-container {
+    grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+    gap: 1.5em; /* Espace entre les avis */
+  }
+  .avis-carte {
+    padding: 1.5em; /* Moins de padding pour les petits écrans */
+  }
+  .avis-texte {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .avis-auteur {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .footer-contact, .footer-horaires, .footer-paiements {
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centre les éléments */
+    text-align: center; /* Centre le texte */
+  }
+  .footer-contact p, .footer-contact a {
+    margin: 5px 0; /* Moins d'espace entre les éléments */
+  }
+
+  .paiement-icones img {
+    max-width: 50px; /* Réduit la taille des icônes de paiement */
+  }
+  .section-map h2 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .map-container {
+    width: 100%; /* La carte prend toute la largeur */
+    max-width: none; /* Pas de limite de largeur */
+  }
+  .map-container iframe {
+    height: 300px; /* Hauteur réduite pour les petits écrans */
+  }
+  .btn-quantite {
+    padding: 6px 12px; /* Moins de padding pour les petits écrans */
+    font-size: 14px; /* Taille de police plus petite */
+  }
+  .quantite-panier {
+    flex-direction: column; /* Empile les boutons verticalement */
+    align-items: center; /* Centre les éléments */
+  }
+  .btn-quantite {
+    margin: 5px 0; /* Espace entre les boutons */
+  }
+  .ajouter-panier {
+    padding: 8px 0; /* Moins de padding pour les petits écrans */
+    font-size: 14px; /* Taille de police plus petite */
+  }
+  .btn-commande {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 14px; /* Taille de police plus petite */
+  }
+  .whatsapp-float img {
+    width: 50px; /* Réduit la taille de l'icône WhatsApp */
+    height: 50px; /* Assure que l'icône reste ronde */
+  }
+  .hero-diallo {
+    padding: 2em 10px; /* Moins d'espace sur les côtés */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.8rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+
+  .hero-content-diallo p {
+    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  .btn-diallo {
+    padding: 8px 16px; /* Moins de padding pour les petits écrans */
+    font-size: 0.9rem; /* Taille de police plus petite */
+  }
+  .hero-content-diallo {
+    text-align: center; /* Centre le texte pour les petits écrans */
+  }
+  .hero-content-diallo img {
+    width: 100%; /* L'image prend toute la largeur */
+    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    height: auto; /* Assure que l'image garde ses proportions */
+  }
+  .hero-content-diallo {
+    padding: 1em; /* Moins d'espace autour du contenu */
+  }
+  .hero-content-diallo h1 {
+    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
+  }
+  /* */
+ }
+
+
+/*<button id="chat-toggle-btn">💬</button> 
+, <a href="#" id="retour-haut" title="Retour en haut" class="visible">↑</a> ,<button id="chat-toggle-btn">💬</button> , 
+<button id="recherche-btn">🔍</button>, responsive 768 */
+@media (max-width: 768px) {
+  #chat-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px; /* Taille réduite pour les petits écrans */
+    height: 50px;
+    background-color: #D32F2F; /* Rouge assorti au header */        
+    color: white;         
+    border-radius: 50%;
+
+    border: none;
+    font-size: 24px; /* Taille de police réduite */
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;  
+    z-index: 9998; /* Assure qu'il est au-dessus de tout */       
+    transition: transform 0.2s;         
+  } 
+  #chat-toggle-btn:hover {
+    transform: scale(1.1); /* Agrandit légèrement au survol */
+  } 
+
+  #retour-haut {
+    position: fixed;
+    bottom: 80px; /* Ajusté pour être au-dessus du bouton de chat */
+    right: 20px;
+    background-color: #D32F2F; /* Rouge assorti au header */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 24px; /* Taille de police réduite */
+    cursor: pointer;
+    z-index: 9999; /* Assure qu'il est au-dessus du bouton de chat */
+  }
+  /* Estilos generales para el botón de búsqueda */
+.search-box button {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white; /* Asegura que el icono sea blanco */
+}
+}
+/*cierra el acolade*/
+
+
+
+
