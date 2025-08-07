@@ -825,7 +825,7 @@ html {
 /* =================================
    STYLES RESPONSIVES (MOBILES & TABLETTES)
    ================================= */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
 
   /* --- Header --- */
   .main-header {
@@ -1026,7 +1026,7 @@ section h2 {
    STYLES RESPONSIVES (FINAUX)
    Pour tablettes et mobiles (768px et moins)
    ================================= */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
 
   /* --- Header & Recherche --- */
   .main-header {
@@ -1345,7 +1345,7 @@ section h2 {
 }
 
 /* Ajustes para móviles */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
     #retour-haut {
       right: 15px;
       bottom: 90px;
@@ -1365,7 +1365,7 @@ section h2 {
     font-size: 25px; /* Réduire la taille de l'icône */
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   h2 {
     font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
     margin: 20px 0; /* Réduit aussi la marge */
@@ -1378,7 +1378,7 @@ section h2 {
     font-size: 1.5em; /* Une taille encore plus petite pour les très petits téléphones */
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   /* Empiler les éléments du footer verticalement */
   #footer-contact {
     flex-direction: column;
@@ -1409,7 +1409,7 @@ section h2 {
   align-items: center; /* Centre les éléments */
   margin-bottom: 20px; /* Espace entre les sections */
 }
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .footer-contact {
     text-align: center; /* Centre le texte sur les petits écrans */
   }
@@ -1418,9 +1418,64 @@ section h2 {
   }
 }
 /* h2 responsive */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   h2 {
     font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
     margin: 20px 0; /* Réduit aussi la marge */
+  }
+}
+/* responsive .paiement-icones */
+@media (max-width: 400px) {
+  .paiement-icones img {
+    max-width: 50px; /* Réduit la taille des icônes */
+  }
+}
+/*<button id="recherche-btn">🔍</button>*/
+/* Responsive pour le bouton de recherche */
+@media (max-width: 400px) {
+  #recherche-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #D32F2F; /* Rouge assorti au header */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; /* Assure qu'il est au-dessus de tout */
+  }
+}
+/*<h2</h2> para todos los h2 responsive para redmi */ 
+@media (max-width: 400px) {
+  h2 {
+    font-size: 1.4em; /* Ajuste adicional para pantallas muy pequeñas */
+    margin: 15px 0; /* Ajuste de margen */
+  }
+}
+/* Corrección para el botón de búsqueda en móviles */ 
+@media (max-width: 400px) {
+  .search-box {
+    width: 100%; /* La caja de búsqueda toma todo el ancho disponible */
+  }
+  .search-box input {
+    flex: 1; /* El input ocupa todo el espacio disponible */
+    font-size: 14px; /* Texto un poco más pequeño */
+  }
+  .search-box button {
+    padding: 0 10px; /* Botón más pequeño */
+    font-size: 16px; /* Icono un poco más grande */
+  }
+}/* Corrección para el modal de búsqueda en móviles */
+@media (max-width: 400px) {
+  .recherche-modal-contenu {
+    width: 95%; /* El modal ocupa casi todo el ancho */
+    height: auto; /* La altura se adapta al contenido */
+    max-height: 90vh; /* Pero no más del 90% de la altura de la pantalla */
+    padding: 1em; /* Menos padding para móviles */
+  }
+  #recherche-resultats .plat {
+    flex-basis: 100%; /* Cada platillo ocupa toda la fila */
   }
 }
