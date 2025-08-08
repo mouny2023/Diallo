@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (paiement === "Paiement mobile") {
             message += `\n\n📲 *Instructions de paiement mobile* :\n➡️ Si tu utilises *Moov Money*, envoie à : *95 55 55 55*\n➡️ Si tu utilises *Céltiis*, envoie à : *94 44 44 44*\n📸 Merci d’envoyer une capture ici même sur WhatsApp après paiement.`;
         }
-        const url = `https://wa.me/22961494563?text=${encodeURIComponent(message)}`;
+        const url = `https://wa.me/22966159626?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
         
         document.getElementById('panier-modal')?.classList.add('hidden');
