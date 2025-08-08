@@ -10,7 +10,20 @@
 </head>
 <body>
 
-<!-- ✅ HEADER DU SITE -->
+<input type="checkbox" id="panier-toggle" class="panier-toggle-checkbox">
+<label for="panier-toggle" class="panier-overlay"></label>
+<div class="panier-container">
+    <label for="panier-toggle" class="fermer-panier-btn">×</label>
+    <h3>🛒 Panier</h3>
+    <ul id="panier-liste"></ul>
+    <div class="panier-footer">
+      <p><strong>Total :</strong> <span id="panier-total">0</span> FCFA</p>
+      <button id="vider-panier">Vider le panier</button>
+      <button id="ouvrir-modal">Finaliser la commande</button>
+    </div>
+</div>
+
+
 <header class="main-header">
   <div class="logo">
     <a href="index.html">
@@ -18,7 +31,6 @@
     </a>
     <h1>Café Resto Chez Diallo</h1>
   </div>
-
 
   <nav class="nav-menu">
     <ul>
@@ -30,32 +42,29 @@
         <ul class="dropdown-content">
           <li><a href="#plats">Plats</a></li>
           <li><a href="#pates">Pâtes </a></li>
-
           <li><a href="#boissons">Boissons</a></li>
           <li><a href="#desserts">Desserts</a></li>
           <li><a href="#petit-dejeuner">Petit-déjeuner</a></li>
-
         </ul>
       </li>
     </ul>
   </nav>
 
-<div class="header-right">
-<div class="search-box">
-  <input type="text" id="recherche-input" placeholder="Rechercher...">
-  <button id="recherche-btn">🔍</button>
-  <div id="suggestions"></div>
-</div>
-</div>
-
-
-    <div class="cart-icon">
-      <span>🛒</span>
-      <span class="cart-count">1</span>
+  <div class="header-right">
+    <div class="search-box">
+      <input type="text" id="recherche-input" placeholder="Rechercher...">
+      <button id="recherche-btn">🔍</button>
+      <div id="suggestions"></div>
     </div>
+    
+    <label for="panier-toggle" class="cart-icon">
+        <span>🛒</span>
+        <span class="cart-count">0</span>
+    </label>
+    
   </div>
 </header>
-<!-- ✅ SECTION HERO -->
+
 <section class="hero-diallo" id="hero-diallo">
   <div class="hero-content-diallo">
     <h1> Bienvenue chez Diallo</h1>
@@ -63,6 +72,7 @@
     <a href="#plats" class="btn-diallo">Voir notre Menu</a>
   </div>
 </section>
+
 <section id="nous">
   <h2 data-aos="fade-up">Notre Histoire</h2>
   <div class="nous-container">
@@ -80,9 +90,9 @@
     </div>
   </div>
 </section>
+
 <section id="galerie">
   <h2 data-aos="fade-up">Notre Univers en Images</h2>
-
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -98,727 +108,111 @@
         <img src="images/equipe-souriante.png" alt="L'équipe du restaurant">
       </div>
       <div class="swiper-slide">
-        <img src="images/dessert    gourmand .png" alt="Dessert gourmand">
+        <img src="images/dessert     gourmand .png" alt="Dessert gourmand">
       </div>
       <div class="swiper-slide">
         <img src="images/plat-3.png" alt="Photo d'un troisième plat">
       </div>
     </div>
-    
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
     <div class="swiper-pagination"></div>
   </div>
-</section>
 </section>
 
 <section id="plats">
   <h2 data-aos="fade-up">Nos Plats</h2>
   <div id="plats-container" class="grid-menu">
-
-    <div class="plat" >
-      <img src="images/Pâte rouge + sauce.png" alt="Pâte rouge + sauce">
-      <h3>Pâte rouge + sauce</h3>
-      <p class="prix-unite">Prix : 1500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-   
-    </div>
-
-    <div class="plat">
-      <img src="images/Riz blanc + sauce tomate.png" alt="Riz blanc + sauce tomate">
-      <h3>Riz blanc + sauce tomate</h3>
-      <p class="prix-unite">Prix : 1300 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-  
-    </div>
-
-    <div class="plat">
-      <img src="images/Couscous + viande.png" alt="Couscous + viande">
-      <h3>Couscous + viande</h3>
-      <p class="prix-unite">Prix : 1800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Tô + sauce arachide.png" alt="Tô + sauce arachide">
-      <h3>Tô + sauce arachide</h3>
-      <p class="prix-unite">Prix : 1400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-    
-    </div>
-
-    <div class="plat">
-      <img src="images/poisson braisé-atiéké.png" alt="Attiéké + poisson">
-      <h3>Attiéké + poisson</h3>
-      <p class="prix-unite">Prix : 2000 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-      
-    </div>
-
-    <div class="plat">
-      <img src="images/Fufu + soupe de légumes.png" alt="Fufu + soupe de légumes">
-      <h3>Fufu + soupe de légumes</h3>
-      <p class="prix-unite">Prix : 1700 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Yassa poulet.png" alt="Yassa poulet">
-      <h3>Yassa poulet</h3>
-      <p class="prix-unite">Prix : 1800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Thiebou dienne.png" alt="Thiebou dienne">
-      <h3>Thiebou dienne</h3>
-      <p class="prix-unite">Prix : 1900 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-   
-    </div>
-
-    <div class="plat">
-      <img src="images/Haricot + banane.png" alt="Haricot + banane">
-      <h3>Haricot + banane</h3>
-      <p class="prix-unite">Prix : 1200 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Macaroni gratiné.png" alt="Macaroni gratiné">
-      <h3>Macaroni gratiné</h3>
-      <p class="prix-unite">Prix : 1600 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Poulet braisé + frites.png" alt="Poulet braisé + frites">
-      <h3>Poulet braisé + frites</h3>
-      <p class="prix-unite">Prix : 2000 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/riz cantonais.png
-      " alt="Riz cantonais">
-      <h3>Riz cantonais</h3>
-      <p class="prix-unite">Prix : 1500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-<div class="plat">
-  <img src="images/Steak frites, sauce poivre.png" alt="Steak frites et sauce poivre">
-  <h3>Steak frites, sauce poivre</h3>
-  <p class="prix-unite">Prix : 3500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
+    <div class="plat" > <img src="images/Pâte rouge + sauce.png" alt="Pâte rouge + sauce"> <h3>Pâte rouge + sauce</h3> <p class="prix-producto">Prix : 1500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Riz blanc + sauce tomate.png" alt="Riz blanc + sauce tomate"> <h3>Riz blanc + sauce tomate</h3> <p class="prix-producto">Prix : 1300 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Couscous + viande.png" alt="Couscous + viande"> <h3>Couscous + viande</h3> <p class="prix-producto">Prix : 1800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Tô + sauce arachide.png" alt="Tô + sauce arachide"> <h3>Tô + sauce arachide</h3> <p class="prix-producto">Prix : 1400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/poisson braisé-atiéké.png" alt="Attiéké + poisson"> <h3>Attiéké + poisson</h3> <p class="prix-producto">Prix : 2000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Fufu + soupe de légumes.png" alt="Fufu + soupe de légumes"> <h3>Fufu + soupe de légumes</h3> <p class="prix-producto">Prix : 1700 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Yassa poulet.png" alt="Yassa poulet"> <h3>Yassa poulet</h3> <p class="prix-producto">Prix : 1800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Thiebou dienne.png" alt="Thiebou dienne"> <h3>Thiebou dienne</h3> <p class="prix-producto">Prix : 1900 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Haricot + banane.png" alt="Haricot + banane"> <h3>Haricot + banane</h3> <p class="prix-producto">Prix : 1200 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Macaroni gratiné.png" alt="Macaroni gratiné"> <h3>Macaroni gratiné</h3> <p class="prix-producto">Prix : 1600 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Poulet braisé + frites.png" alt="Poulet braisé + frites"> <h3>Poulet braisé + frites</h3> <p class="prix-producto">Prix : 2000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/riz cantonais.png" alt="Riz cantonais"> <h3>Riz cantonais</h3> <p class="prix-producto">Prix : 1500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Steak frites, sauce poivre.png" alt="Steak frites et sauce poivre"> <h3>Steak frites, sauce poivre</h3> <p class="prix-producto">Prix : 3500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Gigot d'agneau et son gratin.png" alt="Gigot d'agneau et son gratin"> <h3>Gigot d'agneau et son gratin</h3> <p class="prix-producto">Prix : 4500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Poulet rôti, purée maison.png" alt="Poulet rôti et purée maison"> <h3>Poulet rôti, purée maison</h3> <p class="prix-producto">Prix : 2800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Gambas à l'ail et persil.png" alt="Gambas à l'ail et persil"> <h3>Gambas à l'ail et persil</h3> <p class="prix-producto">Prix : 3000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Gigot d'agneau et son gratin.png" alt="Gigot d'agneau et son gratin">
-  <h3>Gigot d'agneau et son gratin</h3>
-  <p class="prix-unite">Prix : 4500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Poulet rôti, purée maison.png" alt="Poulet rôti et purée maison">
-  <h3>Poulet rôti, purée maison</h3>
-  <p class="prix-unite">Prix : 2800 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Gambas à l'ail et persil.png" alt="Gambas à l'ail et persil">
-  <h3>Gambas à l'ail et persil</h3>
-  <p class="prix-unite">Prix : 3000 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-  </div>
-  
 </section>
+
 <section id="pates">
   <h2 data-aos="fade-up">Nos Pâtes</h2>
   <div id="pates-container" class="grid-menu">
-
-    <div class="plat">
-      <img src="images/pate a la bolongaise.png" alt="Pâtes à la bolognaise">
-      <h3>Pâtes à la bolognaise</h3>
-      <p class="prix-unite">Prix : 1300 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/Pâtes carbonara.png" alt="Pâtes carbonara">
-      <h3>Pâtes carbonara</h3>
-      <p class="prix-unite">Prix : 1500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/Pâtes aux fruits de mer.png" alt="Pâtes aux fruits de mer">
-      <h3>Pâtes aux fruits de mer</h3>
-      <p class="prix-unite">Prix : 1800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/lassanges.png" alt="Lasagnes">
-      <h3>Lasagnes</h3>
-      <p class="prix-unite">Prix : 1600 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
+    <div class="plat"> <img src="images/pate a la bolongaise.png" alt="Pâtes à la bolognaise"> <h3>Pâtes à la bolognaise</h3> <p class="prix-producto">Prix : 1300 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Pâtes carbonara.png" alt="Pâtes carbonara"> <h3>Pâtes carbonara</h3> <p class="prix-producto">Prix : 1500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Pâtes aux fruits de mer.png" alt="Pâtes aux fruits de mer"> <h3>Pâtes aux fruits de mer</h3> <p class="prix-producto">Prix : 1800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/lassanges.png" alt="Lasagnes"> <h3>Lasagnes</h3> <p class="prix-producto">Prix : 1600 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
 </section>
 
 <section id="boissons">
-  
-  <section id="boissons">
   <h2 data-aos="fade-up">Nos Boissons</h2>
   <div id="boissons-container" class="grid-menu">
-
-
-   <div class="plat">
-      <img src="images/fanta.png" alt="Fanta">
-      <h3>Fanta (50cl)</h3>
-      <p class="prix-unite">Prix : 400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-      
-    </div>
-
-    <div class="plat">
-      <img src="images/coca.png" alt="Coca-Cola">
-      <h3>Coca-Cola (50cl)</h3>
-      <p class="prix-unite">Prix : 400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-    
-    </div>
-
-    <div class="plat">
-      <img src="images/sprite.png" alt="Sprite">
-      <h3>Sprite (50cl)</h3>
-      <p class="prix-unite">Prix : 400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-   
-    </div>
-
-    <div class="plat">
-      <img src="images/pepsi.png" alt="Pepsi">
-      <h3>Pepsi (50cl)</h3>
-      <p class="prix-unite">Prix : 400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
- 
-    </div>
-
-    <div class="plat">
-      <img src="images/schweppes.png" alt="Schweppes">
-      <h3>Schweppes</h3>
-      <p class="prix-unite">Prix : 450 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-    
-    </div>
-
-    <div class="plat">
-      <img src="images/7up.png" alt="7up">
-      <h3>7up (50cl)</h3>
-      <p class="prix-unite">Prix : 400 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-    
-    </div>
-<div class="plat">
-  <img src="images/Jus de bissap.png" alt="Jus de bissap">
-  <h3>Jus de bissap</h3>
-  <p class="prix-unite">Prix : 500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/jus de gingembre.png" alt="Jus de gingembre">
-  <h3>Jus de gingembre</h3>
-  <p class="prix-unite">Prix : 500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/eau minerale.png" alt="Eau minérale">
-  <h3>Eau minérale (1.5L)</h3>
-  <p class="prix-unite">Prix : 500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Jus d'ananas.png" alt="Jus d'ananas">
-  <h3>Jus d'ananas</h3>
-  <p class="prix-unite">Prix : 600 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Limonade maison.png" alt="Limonade maison">
-  <h3>Limonade maison</h3>
-  <p class="prix-unite">Prix : 400 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Thé glacé à la menthe.png" alt="Thé glacé à la menthe">
-  <h3>Thé glacé à la menthe</h3>
-  <p class="prix-unite">Prix : 400 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-<div class="plat">
-  <img src="images/Milkshake .png" alt="Milkshake">
-  <h3>Milkshake (chocolat/vanille)</h3>
-  <p class="prix-unite">Prix : 1200 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Smoothie aux fruits rouges.png" alt="Smoothie aux fruits rouges">
-  <h3>Smoothie aux fruits rouges</h3>
-  <p class="prix-unite">Prix : 1500 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/Diabolo menthe.png" alt="Diabolo menthe">
-  <h3>Diabolo menthe</h3>
-  <p class="prix-unite">Prix : 600 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
-
-<div class="plat">
-  <img src="images/cafe frappe.png" alt="Café frappé">
-  <h3>Café frappé</h3>
-  <p class="prix-unite">Prix : 1000 FCFA</p>
-  <div class="quantite-wrapper">
-    <button class="moins">−</button>
-    <input type="text" class="quantite" value="1" readonly>
-    <button class="plus">+</button>
-  </div>
-  <button class="ajouter-panier">Ajouter au panier</button>
-</div>
+    <div class="plat"> <img src="images/fanta.png" alt="Fanta"> <h3>Fanta (50cl)</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/coca.png" alt="Coca-Cola"> <h3>Coca-Cola (50cl)</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/sprite.png" alt="Sprite"> <h3>Sprite (50cl)</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/pepsi.png" alt="Pepsi"> <h3>Pepsi (50cl)</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/schweppes.png" alt="Schweppes"> <h3>Schweppes</h3> <p class="prix-producto">Prix : 450 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/7up.png" alt="7up"> <h3>7up (50cl)</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Jus de bissap.png" alt="Jus de bissap"> <h3>Jus de bissap</h3> <p class="prix-producto">Prix : 500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/jus de gingembre.png" alt="Jus de gingembre"> <h3>Jus de gingembre</h3> <p class="prix-producto">Prix : 500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/eau minerale.png" alt="Eau minérale"> <h3>Eau minérale (1.5L)</h3> <p class="prix-producto">Prix : 500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Jus d'ananas.png" alt="Jus d'ananas"> <h3>Jus d'ananas</h3> <p class="prix-producto">Prix : 600 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Limonade maison.png" alt="Limonade maison"> <h3>Limonade maison</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Thé glacé à la menthe.png" alt="Thé glacé à la menthe"> <h3>Thé glacé à la menthe</h3> <p class="prix-producto">Prix : 400 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Milkshake .png" alt="Milkshake"> <h3>Milkshake (chocolat/vanille)</h3> <p class="prix-producto">Prix : 1200 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Smoothie aux fruits rouges.png" alt="Smoothie aux fruits rouges"> <h3>Smoothie aux fruits rouges</h3> <p class="prix-producto">Prix : 1500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Diabolo menthe.png" alt="Diabolo menthe"> <h3>Diabolo menthe</h3> <p class="prix-producto">Prix : 600 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/cafe frappe.png" alt="Café frappé"> <h3>Café frappé</h3> <p class="prix-producto">Prix : 1000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
 </section>
+
 <section id="desserts">
   <h2 data-aos="fade-up">Nos Desserts</h2>
   <div id="desserts-container" class="grid-menu">
-
-
-    <div class="plat">
-      <img src="images/gateau+chocolat.png" alt="Gâteau au chocolat">
-      <h3>Gâteau au chocolat</h3>
-      <p class="prix-unite">Prix : 1000 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/tiramisu.png" alt="Tiramisu">
-      <h3>Tiramisu</h3>
-      <p class="prix-unite">Prix : 1200 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-   
-    </div>
-
-    <div class="plat">
-      <img src="images/fruit-salade.png" alt="Salade de fruits">
-      <h3>Salade de fruits</h3>
-      <p class="prix-unite">Prix : 800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
+    <div class="plat"> <img src="images/gateau+chocolat.png" alt="Gâteau au chocolat"> <h3>Gâteau au chocolat</h3> <p class="prix-producto">Prix : 1000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/tiramisu.png" alt="Tiramisu"> <h3>Tiramisu</h3> <p class="prix-producto">Prix : 1200 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/fruit-salade.png" alt="Salade de fruits"> <h3>Salade de fruits</h3> <p class="prix-producto">Prix : 800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
 </section>
 
 <section id="petit-dejeuner">
   <h2 data-aos="fade-up">Petit déjeuner</h2>
   <div id="petit-dejeuner-container" class="grid-menu">
-
-
-    <!-- Variante 1 -->
-    <div class="plat">
-      <img src="images/beignets+bouillie.png" alt="Beignets + bouillie">
-      <h3>Beignets + bouillie</h3>
-      <p>500 FCFA</p>
-            <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec du bouillie.">
-
-<button class="btn-commande">Commander</button>
-      </a>
-    </div>
-
-    <!-- Variante 2 -->
-    <div class="plat">
-      <img src="images/beignets+cafe.png" alt="Beignets + café au lait">
-      <h3>Beignets + café au lait</h3>
-      <p>600 FCFA</p>
-      <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec café au lait.">
-<button class="btn-commande">Commander</button>
-      </a>
-    </div>
-
-    <!-- Variante 3 -->
-    <div class="plat">
-      <img src="images/pain-omelette.png" alt="Pain + omelette">
-      <h3>Pain + omelette</h3>
-      <p>700 FCFA</p>
-      <a href="https://wa.me/22961494563?text=Je souhaite commander du pain avec omelette.">
-<button class="btn-commande">Commander</button>
-      </a>
-    </div>
-
+    <div class="plat"> <img src="images/beignets+bouillie.png" alt="Beignets + bouillie"> <h3>Beignets + bouillie</h3> <p>500 FCFA</p> <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec du bouillie."> <button class="btn-commande">Commander</button> </a> </div>
+    <div class="plat"> <img src="images/beignets+cafe.png" alt="Beignets + café au lait"> <h3>Beignets + café au lait</h3> <p>600 FCFA</p> <a href="https://wa.me/22961494563?text=Je souhaite commander des beignets avec café au lait."> <button class="btn-commande">Commander</button> </a> </div>
+    <div class="plat"> <img src="images/pain-omelette.png" alt="Pain + omelette"> <h3>Pain + omelette</h3> <p>700 FCFA</p> <a href="https://wa.me/22961494563?text=Je souhaite commander du pain avec omelette."> <button class="btn-commande">Commander</button> </a> </div>
   </div>
 </section>
-
 
 <section id="menu-principal">
   <h2 data-aos="fade-up">Menu du jour</h2>
   <div id="menu-principal-container" class="grid-menu">
-
-    <div class="plat">
-      <img src="images/pates aux sardines.png" alt="Spaghetti aux sardines">
-      <h3>Spaghetti aux sardines</h3>
-      <p class="prix-unite">Prix : 800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/Poulet Yassa avec riz.png" alt="Poulet Yassa avec riz">
-      <h3>Poulet Yassa avec riz</h3>
-      <p class="prix-unite">Prix : 1500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/Poisson braisé et alloco.png" alt="Poisson braisé et alloco">
-      <h3>Poisson braisé et alloco</h3>
-      <p class="prix-unite">Prix : 2000 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
-    <div class="plat">
-      <img src="images/Riz sauce arachide et légumes.png" alt="Riz sauce arachide et légumes">
-      <h3>Riz sauce arachide et légumes</h3>
-      <p class="prix-unite">Prix : 1200 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-      <button class="ajouter-panier">Ajouter au panier</button>
-    </div>
-
+    <div class="plat"> <img src="images/pates aux sardines.png" alt="Spaghetti aux sardines"> <h3>Spaghetti aux sardines</h3> <p class="prix-producto">Prix : 800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Poulet Yassa avec riz.png" alt="Poulet Yassa avec riz"> <h3>Poulet Yassa avec riz</h3> <p class="prix-producto">Prix : 1500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Poisson braisé et alloco.png" alt="Poisson braisé et alloco"> <h3>Poisson braisé et alloco</h3> <p class="prix-producto">Prix : 2000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Riz sauce arachide et légumes.png" alt="Riz sauce arachide et légumes"> <h3>Riz sauce arachide et légumes</h3> <p class="prix-producto">Prix : 1200 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
 </section>
-
-
 
 <section id="menu">
   <h2 data-aos="fade-up">MENU DU WEEKEND</h2>
   <div id="menu-weekend-container" class="grid-menu">
-
-
-    <div class="plat">
-      <img src="images/poisson braisé-atiéké.png" alt="Plat Weekend 1">
-      <h3>Poisson braisé + Attiéké</h3>
-      <p class="prix-unite">Prix : 2500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-      
-    </div>
-
-    <div class="plat">
-      <img src="images/poulet-dg.png" alt="Plat Weekend 2">
-      <h3>Poulet DG</h3>
-      <p class="prix-unite">Prix : 3000 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-   
-    </div>
-
-    <div class="plat">
-      <img src="images/Tô + sauce gombo + viande.png" alt="Plat Weekend 3">
-      <h3>Tô + sauce gombo + viande</h3>
-      <p class="prix-unite">Prix : 1800 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Riz gras au mouton.png" alt="Plat Weekend 4">
-      <h3>Riz gras au mouton</h3>
-      <p class="prix-unite">Prix : 2200 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
-    <div class="plat">
-      <img src="images/Poulet rôti + frites.png" alt="Plat Weekend 5">
-      <h3>Poulet rôti + frites</h3>
-      <p class="prix-unite">Prix : 2500 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-      
-    </div>
-
-    <div class="plat">
-      <img src="images/Ragoût de haricot + igname.png" alt="Plat Weekend 6">
-      <h3>Ragoût de haricot + igname</h3>
-      <p class="prix-unite">Prix : 1600 FCFA</p>
-      <div class="quantite-wrapper">
-        <button class="moins">−</button>
-        <input type="text" class="quantite" value="1" readonly>
-        <button class="plus">+</button>
-      </div>
-<button class="ajouter-panier">Ajouter au panier</button>
-     
-    </div>
-
+    <div class="plat"> <img src="images/poisson braisé-atiéké.png" alt="Plat Weekend 1"> <h3>Poisson braisé + Attiéké</h3> <p class="prix-producto">Prix : 2500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/poulet-dg.png" alt="Plat Weekend 2"> <h3>Poulet DG</h3> <p class="prix-producto">Prix : 3000 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Tô + sauce gombo + viande.png" alt="Plat Weekend 3"> <h3>Tô + sauce gombo + viande</h3> <p class="prix-producto">Prix : 1800 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Riz gras au mouton.png" alt="Plat Weekend 4"> <h3>Riz gras au mouton</h3> <p class="prix-producto">Prix : 2200 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Poulet rôti + frites.png" alt="Plat Weekend 5"> <h3>Poulet rôti + frites</h3> <p class="prix-producto">Prix : 2500 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
+    <div class="plat"> <img src="images/Ragoût de haricot + igname.png" alt="Plat Weekend 6"> <h3>Ragoût de haricot + igname</h3> <p class="prix-producto">Prix : 1600 FCFA</p> <div class="quantite-wrapper"> <button class="moins">−</button> <input type="text" class="quantite" value="1" readonly> <button class="plus">+</button> </div> <button class="ajouter-panier">Ajouter au panier</button> </div>
   </div>
 </section>
-<div class="panier-container hidden">
-  <h3>🛒 Panier</h3>
-  <ul id="panier-liste">
-    </ul>
-  <p><strong>Total :</strong> <span id="panier-total">0</span> FCFA</p>
-  <button id="vider-panier">Vider le panier</button>
-  <button id="ouvrir-modal">Finaliser la commande</button>
-</div>
 
 <footer>
   <div id="footer-contact">
@@ -828,15 +222,13 @@
       <p>📲 <strong>WhatsApp :</strong> <a href="https://wa.me/22961494563" target="_blank">Envoyer un message</a></p>
       <p>🔵 <strong>Facebook :</strong> <a href="https://www.facebook.com/CaféRestoChezDiallo" target="_blank">Café Resto Chez Diallo</a></p>
     </div>
-
     <section id="carte" class="section-map">
       <h2 data-aos="fade-up">📍 Nous trouver</h2>
       <div class="map-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d62988.76393912724!2d2.5683962870844597!3d9.351158175584928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zUm9uZCBQb2ludCBQSy1Uw6lsw6kg4oCTIFBhcmFrb3U!5e0!3m2!1ses-419!2sar!4v1754243840836!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d62988.76393912724!2d2.5683962870844597!3d9.351158175584928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zUm9uZCBQb2ludCBQSy1Uw6lsw6kg4oCTIFBhcmFrb3U!5e0!3m2!1ses-419!2sar!4v1754243840836!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </div>
-
   <div class="footer-paiements">
     <p><strong>Moyens de paiement acceptés :</strong></p>
     <div class="paiement-icones">
@@ -847,33 +239,25 @@
       <img src="images/qr.png" alt="Paiement QR" title="Paiement par QR">
     </div>
   </div>
-
   <p style="margin-top: 20px;">© 2025 Café Resto Chez Diallo. Tous droits réservés.</p>
 </footer>
-
-<!-- 1. MODAL FORMULAIRE -->
 <div id="panier-modal" class="hidden modal">
   <div class="modal-content">
     <h2>Complétez votre commande</h2>
-
     <label for="nom">Nom complet :</label>
     <input type="text" id="nom" placeholder="Ex : Diallo Karim">
-
     <label for="livraison">Mode de retrait :</label>
     <select id="livraison">
       <option value="Retrait au restaurant">Retrait au restaurant</option>
       <option value="Livraison à domicile">Livraison à domicile</option>
     </select>
-
     <label for="paiement">Mode de paiement :</label>
     <select id="paiement">
       <option value="Paiement à la livraison">Paiement à la livraison</option>
       <option value="Paiement mobile">Paiement mobile</option>
     </select>
-
     <label for="heure">Heure souhaitée :</label>
     <input type="text" id="heure" placeholder="Ex : 13h30">
-
     <div class="btns-modal">
       <button id="envoyer-commande">Envoyer via WhatsApp</button>
       <button id="fermer-modal">Annuler</button>
@@ -886,49 +270,40 @@
   <strong>Céltiis :</strong> 94 44 44 44<br>
   📸 Envoie une capture après paiement sur WhatsApp.
 </div>
-
-
 <a href="https://wa.me/22961494563" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
   <img src="/images/whatsapp-icon.png" alt="WhatsApp" />
 </a>
 <a href="#" id="retour-haut" title="Retour en haut">↑</a>
 <div id="recherche-modal" class="recherche-modal hidden">
   <div class="recherche-modal-contenu">
-    <button id="fermer-recherche-modal" class="fermer-btn">&times;</button>
+    <button id="fermer-recherche-modal" class="fermer-btn">×</button>
     <h2>Résultats de la recherche</h2>
-    <div id="recherche-resultats" class="grid-menu">
-      </div>
+    <div id="recherche-resultats" class="grid-menu"></div>
   </div>
 </div>
-<!-- 3. VIDER PANIER -->
+<div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+        <h3>¿Necesitas ayuda?</h3>
+        <button id="close-chat-btn">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div id="chat-input-area" class="chat-input-area"></div>
+</div>
+<button id="chat-toggle-btn">💬</button>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
 <script src="carrito.js"></script> 
 <script src="search.js"></script> 
 <script src="carousel.js"></script>
 <script src="ui.js"></script>
 <script src="menu-loader.js"></script>
 <script src="chatbot.js"></script>
-
-
 <script>
   AOS.init({
       duration: 800,
       once: false
   });
 </script>
-<div id="chat-widget" class="chat-widget">
-    <div class="chat-header">
-        <h3>¿Necesitas ayuda?</h3>
-        <button id="close-chat-btn">×</button>
-    </div>
-    <div id="chat-messages" class="chat-messages">
-        </div>
-    <div id="chat-input-area" class="chat-input-area">
-        </div>
-</div>
 
-<button id="chat-toggle-btn">💬</button>
 </body>
 </html>

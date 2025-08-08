@@ -1,18 +1,19 @@
-// Fichier carrito.js - VERSION FINALE
+// Fichier carrito.js - VERSION FINAL CORREGIDA
 document.addEventListener('DOMContentLoaded', function () {
     let panier = [];
 
     function updateCartCount() {
         const totalCount = panier.reduce((sum, item) => sum + item.quantite, 0);
         const cartCount = document.querySelector('.cart-count');
-        if (cartCount) cartCount.textContent = totalCount;
+        if (cartCount) {
+            cartCount.textContent = totalCount;
+        }
     }
 
     function majPanier() {
         const liste = document.getElementById('panier-liste');
-        const total = document.getElementById('panier-total');
-        const panierContainer = document.querySelector('.panier-container');
-        if (!liste || !total) return;
+        const totalSpan = document.getElementById('panier-total');
+        if (!liste || !totalSpan) return;
 
         liste.innerHTML = '';
         let somme = 0;
@@ -23,9 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
             somme += item.prix * item.quantite;
         });
 
-        total.textContent = somme;
+        totalSpan.textContent = somme;
         updateCartCount();
-        panierContainer?.classList.toggle('hidden', panier.length === 0);
     }
 
     window.bindAllDynamicEvents = function(scope) {
@@ -50,20 +50,36 @@ document.addEventListener('DOMContentLoaded', function () {
             newBouton.addEventListener('click', () => {
                 const platContainer = newBouton.closest('.plat');
                 if (!platContainer) return;
+                
                 const nom = platContainer.querySelector('h3')?.textContent;
                 const quantiteInput = platContainer.querySelector('.quantite');
-                const prixText = platContainer.querySelector('.prix-unite')?.textContent;
-                if (!nom || !quantiteInput || !prixText) return;
+                // =================================================================
+                // LÍNEA CORREGIDA: Usamos un selector simple para el precio
+                // =================================================================
+                const prixText = platContainer.querySelector('p')?.textContent;
+                
+                if (!nom || !quantiteInput || !prixText) {
+                    console.error("No se encontraron todos los elementos necesarios para añadir al carrito.");
+                    return;
+                }
+                
                 const quantite = parseInt(quantiteInput.value, 10);
                 const prixMatch = prixText.match(/\d+/);
-                if (!prixMatch || isNaN(quantite) || quantite < 1) return;
+                
+                if (!prixMatch || isNaN(quantite) || quantite < 1) {
+                     console.error("Datos de precio o cantidad inválidos.");
+                    return;
+                }
+                
                 const prix = parseInt(prixMatch[0], 10);
                 const itemExistant = panier.find(p => p.nom === nom);
+                
                 if (itemExistant) {
                     itemExistant.quantite += quantite;
                 } else {
                     panier.push({ nom, prix, quantite });
                 }
+                
                 quantiteInput.value = 1;
                 majPanier();
             });
@@ -73,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('vider-panier')?.addEventListener('click', () => {
         panier = [];
         majPanier();
+        const totalSpan = document.getElementById('panier-total');
+        if (totalSpan) {
+            totalSpan.textContent = '0';
+        }
     });
 
     document.getElementById('ouvrir-modal')?.addEventListener('click', () => {
@@ -105,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const url = `https://wa.me/22961494563?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
+        
         document.getElementById('panier-modal')?.classList.add('hidden');
-        document.querySelector('.panier-container')?.classList.add('hidden');
         panier = [];
         majPanier();
     });

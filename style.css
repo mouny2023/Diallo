@@ -1,264 +1,32 @@
+/* =================================
+   GENERAL & BODY STYLES
+   ================================= */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
   background-color: #fff;
   color: #222;
-  box-sizing: border-box; /* Para que el padding y el border no sumen ancho */
-  overflow-x: hidden; /* Evita el scroll horizontal */
+  /* Evita el desbordamiento horizontal causado por elementos mal posicionados */
+  overflow-x: hidden;
 }
 
-    header {
-      background-color: #D32F2F;
-      color: white;
-      text-align: center;
-      padding: 1em;
-    }
-
-    .slogan {
-      font-size: 1.2em;
-      margin-top: -10px;
-    }
-
-    section {
-      /*padding: 2em 1em;*/
-      text-align: center;
-    }
-
-   #menu h2,
-#menu-principal h2,
-#plats h2,
-#boissons h2,
-#petit-dejeuner h2,
-#desserts h2,
-    #pates h2 {
-  background-color: #FBC02D;
-  display: inline-block;
-  padding: 0.5em 1em;
-  border-radius: 5px;
-  margin-top: 3em; /* ✅ AJOUTE CETTE LIGNE */
-}
-.plat .ajouter-panier {
-  background-color: #388E3C;
-  padding: 12px 20px;
-  width: 100%;
-  font-size: 1em;
-  margin-top: 10px;
-}
-.plat .ajouter-panier:hover {
-  background-color: #2e7d32;
+html {
+  scroll-behavior: smooth;
 }
 
-    .grid-menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1em;
-      margin-top: 1em;
-    }
-
-.plat {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* si tu utilises une grille */
-  min-height: 320px; /* adapte selon ton design */
-  text-align: center;
-  padding: 1em;
-  box-sizing: border-box;
-  flex-grow: 1;
-}
-
-
-.plat:hover {
-  transform: scale(1.03);
-}
-
-.plat h3 {
-  font-size: 1.1em;
-  margin: 10px 0 5px;
-}
-
-.plat p {
-  font-weight: bold;
-  font-size: 1em;
-  margin: 5px 0;
-  color: #d32f2f;
-}
-
-.plat img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  background-color: white;
-}
-
-
-
-/* style.css */
-
-/* Règle générale TRÈS simple pour TOUS les boutons */
-button {
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: bold;
-  color: white; /* Color de texto por defecto para todos */
-}
-/* ===== ESTILOS ADICIONALES PARA BOTONES FINALES ===== */
-
-/* 1. Para los botones del carrito flotante (Vider, Finaliser) */
-.panier-container button {
-  background-color: #D32F2F;
-  color: white;
-  padding: 8px 12px;
-  font-size: 0.9em;
-  /* ✅ SOLUCIÓN AL ESPACIADO: Se aplica un margen a cada botón */
-  margin: 4px; 
-}
-.panier-container button:hover {
-  background-color: #B71C1C;
-}
-
-
-/* 2. Para los botones del modal/formulario final (Complétez votre commande) */
-
-/* Contenedor de los botones para alinearlos */
-.btns-modal {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-/* Botón principal de envío */
-#envoyer-commande {
-  background-color: #388E3C; /* Verde, como "Ajouter au panier" */
-  color: white;
-  padding: 12px 20px;
-  flex-grow: 1; /* Ocupa el espacio disponible */
-  margin-right: 10px; /* Espacio con el botón de cancelar */
-}
-#envoyer-commande:hover {
-  background-color: #2e7d32;
-}
-
-/* Botón secundario para cancelar */
-#fermer-modal {
-  background-color: red; /* Gris */
-  color: white;
-  padding: 12px 20px;
-}
-#fermer-modal:hover {
-  background-color: #5a6268;
-}
-    button:hover {
-      background-color: #2e7d32;
-    }
-
-    .menu-list {
-      list-style: none;
-      padding: 0;
-      font-size: 1.2em;
-      line-height: 2;
-      margin: 1em 0;
-    }
-
-    .menu-list li {
-      margin-bottom: 0.5em;
-    }
-
-    #infos {
-      background-color: #FFF8E1;
-      line-height: 1.6;
-    }
-
-   footer {
-  background-color: #004D40;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 16px;
-  margin-top: 50px;
-}
-
-    /* NAVBAR FIXE EN HAUT */
-.navbar {
-  background-color: #D32F2F;
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.navbar li {
-  position: relative;
-}
-
-.navbar a {
-  display: block;
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.navbar a:hover {
-  background-color: #B71C1C;
-}
-
-/* SOUS-MENU DÉROULANT */
-.dropdown {
-  position: relative; /* ✅ Nécessaire pour que le sous-menu se place par rapport à "Menu ▾" */
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  top: 100%;         /* ✅ Positionné juste en dessous */
-           /* ✅ Aligné avec "Menu ▾" */
-  z-index: 999;
-  left: 50%;
-transform: translateX(-50%);
-
-}
-
-
-
-.dropdown-content li a {
-  color: #333;
-  padding: 10px;
-  text-align: left;
-  display: block;
-  font-weight: normal;
-}
-
-.dropdown-content li a:hover {
-  background-color: #eee;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+/* =================================
+   HEADER & NAVIGATION
+   ================================= */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-background: linear-gradient(to right, #b71c1c, #e53935);
+  background: linear-gradient(to right, #b71c1c, #e53935);
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -268,20 +36,25 @@ background: linear-gradient(to right, #b71c1c, #e53935);
 }
 
 .logo img {
-height: 60px;
-  background-color: white;        /* rend visible sur fond rouge */
-  border-radius: 50%;             /* rond parfait */
-  padding: 8px;                   /* espace autour du logo */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* optionnel : petite ombre pour le relief */
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .logo h1 {
   font-size: 1.5em;
   margin: 0;
-  color: white;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
+/* --- Navigation Menu --- */
 .nav-menu > ul {
   list-style: none;
   display: flex;
@@ -290,13 +63,13 @@ height: 60px;
   padding: 0;
 }
 
-
 .nav-menu a {
   color: white;
   text-decoration: none;
   font-weight: bold;
   padding: 8px;
   font-size: 1.1em;
+  display: block;
 }
 
 .nav-menu a:hover {
@@ -304,20 +77,27 @@ height: 60px;
   border-radius: 5px;
 }
 
+/* --- Dropdown Menu --- */
+.dropdown {
+  position: relative;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: white;
-  color: #222;
   min-width: 160px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 999;
 }
 
 .dropdown-content li a {
-  display: block;
-  padding: 10px;
   color: #333;
+  padding: 10px;
+  text-align: left;
   font-weight: normal;
 }
 
@@ -329,13 +109,16 @@ height: 60px;
   display: block;
 }
 
-.header-right {
+/* =================================
+   SEARCH BAR & MODAL
+   ================================= */
+.search-box {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
 }
-
-
 
 .search-box input {
   border: none;
@@ -350,132 +133,81 @@ height: 60px;
   padding: 8px 12px;
   cursor: pointer;
   font-size: 16px;
+  color: #555; /* Color for icon */
 }
 
-.cart-icon {
-  position: relative;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-.quantite-wrapper button {
-  background-color: #4CAF50;
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  line-height: 30px; /* Centra el símbolo verticalmente */
-  padding: 0;
-}
-.quantite-wrapper button:hover {
-  background-color: #45a049;
-}
-
-.quantite-wrapper button {
-  /*background-color: #eee;*/
-  border: none;
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.quantite-wrapper button:hover {
-  background-color: #ddd;
-}
-
-.quantite-wrapper .quantite {
-  width: 40px;
-  text-align: center;
-  font-size: 16px;
-  border: none;
-  background: transparent;
-  font-weight: bold;
-}
-.quantite-wrapper {
+/* --- Search Modal --- */
+.recherche-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 8px 0;
+  backdrop-filter: blur(4px);
 }
 
-.quantite {
-  width: 40px;
-  text-align: center;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.plat img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: contain;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-/* agrega efecto parallax a la seccion hero */
-
-
-
-
-.hero {
-  background-image: url('images/hero.jpg'); /* ou une photo de ton resto */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* <-- Efecto parallax */
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero-content {
-  background-color: rgba(0, 0, 0, 0.5); /* effet foncé pour lisibilité */
-  display: inline-block;
-  padding: 20px 30px;
+.recherche-modal-contenu {
+  background-color: white;
+  padding: 2em;
   border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-.hero h2 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+.recherche-modal-contenu h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 
-.hero p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.hero button {
-  background-color: #FBC02D;
-  color: black;
-  padding: 12px 24px;
-  font-size: 1em;
+.fermer-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: none;
   border: none;
-  border-radius: 5px;
+  color: #555;
   cursor: pointer;
 }
 
-.hero button:hover {
-  background-color: #f9a825;
+#recherche-resultats.grid-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
 }
+
+#recherche-resultats .plat {
+  flex-basis: 250px;
+  flex-grow: 0;
+}
+
+/* =================================
+   HERO SECTION
+   ================================= */
+/* =================================
+   HERO CON SCROLL NORMAL (CORREGIDO)
+   ================================= */
+
 .hero-diallo {
   background-image: url("images/hero-diallo.jpg");
   background-size: cover;
   background-position: center;
+  
+  /* LÍNEA CORREGIDA: Cambiamos 'fixed' por 'scroll' para que la imagen se mueva con la página */
+  background-attachment: scroll; 
+  
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -484,15 +216,17 @@ html {
   padding: 100px 20px 60px;
   position: relative;
   color: #fff;
+  border-top: none;
 }
-
 
 .hero-diallo::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* moins sombre */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
@@ -516,7 +250,6 @@ html {
 .hero-content-diallo p {
   font-size: 1.4rem;
   margin-bottom: 2rem;
-  color: #fff;
 }
 
 .btn-diallo {
@@ -533,158 +266,288 @@ html {
 .btn-diallo:hover {
   background-color: #eaa000;
 }
+
+/* =================================
+   GENERAL SECTION STYLING
+   ================================= */
+section {
+  padding: 4em 20px;
+  text-align: center;
+  border-top: 1px solid #eeeeee;
+}
+
+section h2, #nous h2 {
+  background-color: #FBC02D;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  border-radius: 5px;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+/* =================================
+   MENU & PLATS
+   ================================= */
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.plat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1em;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.plat:hover {
+  transform: scale(1.03);
+}
+
+.plat img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  background-color: white;
+}
+
+.plat h3 {
+  font-size: 1.1em;
+  margin: 10px 0 5px;
+}
+
+.plat p {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 5px 0;
+  color: #d32f2f;
+}
+
+/* --- Buttons & Quantity --- */
+button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  color: white;
+}
+
+/* =================================
+   CARRITO DESPLEGABLE (CSS-ONLY)
+   ================================= */
+
+/* 1. Ocultamos el checkbox real */
+.panier-toggle-checkbox {
+  display: none;
+}
+
+/* 2. El panel del carrito, oculto por defecto */
 .panier-container {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 90%;
+  height: 100vh;
   background: white;
-  padding: 1rem;
-  border: 2px solid brown;
-  z-index: 9999;
-  width: 250px;
-  border-radius: 10px;
-}
-#vider-panier, #ouvrir-modal {
-  background-color: #D32F2F;
-  padding: 8px 12px;
-  font-size: 0.9em;
-  margin-right: 5px;
-}
-#vider-panier:hover, #ouvrir-modal:hover {
-  background-color: #B71C1C;
-}
-
-
-.hidden {
-  display: none;
-}
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 9999;
-}
-.modal-content {
-  background: white;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+  z-index: 10001;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   padding: 20px;
-  border-radius: 8px;
-  width: 90%; max-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
-.modal.hidden {
-  display: none;
-}
-.modal-content input, .modal-content select {
+
+/* 3. El fondo oscuro, oculto por defecto */
+.panier-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-.btns-modal {
-  display: flex;
-  justify-content: space-between;
-}
-.footer-paiements {
- 
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  border-top: 1px solid #ddd;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
-.paiement-icones {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+/* 4. LA MAGIA: Cuando el checkbox está marcado... */
+.panier-toggle-checkbox:checked ~ .panier-container {
+  transform: translateX(0); /* Muestra el carrito */
 }
 
-.paiement-icones img {
-  height: 40px;
-  transition: transform 0.2s ease;
-}
-
-.paiement-icones img:hover {
-  transform: scale(1.1);
-}
-
-
-.footer-contact p,
-.footer-paiements p {
-  margin: 5px 0;
-}
-
-.footer-contact a {
-  color: #fdd835;
-  text-decoration: none;
-}
-
-.paiement-icones {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.paiement-icones img {
-  height: 40px;
+.panier-toggle-checkbox:checked ~ .panier-overlay {
+  opacity: 1; /* Muestra el fondo */
+  visibility: visible;
 }
 .ajouter-panier {
   background-color: #388E3C;
-  color: white;
-  border: none;
-  padding: 10px 0px; /* moins haut que les boutons + et - */
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 0.5em;
+  padding: 12px 20px;
   width: 100%;
-      flex-grow: 0;
+  font-size: 1em;
+  margin-top: 10px;
 }
-.btn-commande {
-  background-color: #388E3C;
-  color: white;
+
+.ajouter-panier:hover {
+  background-color: #2e7d32;
+}
+
+.quantite-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.quantite-wrapper button {
+  background-color: #4CAF50;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0;
+}
+
+.quantite-wrapper button:hover {
+  background-color: #45a049;
+}
+
+.quantite-wrapper .quantite {
+  width: 40px;
+  text-align: center;
+  font-size: 16px;
   border: none;
-  padding: 10px 20px; /* Ton nouveau padding ici */
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 0.5em;
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px; /* <--- On remplace "right" par "left" */
-  z-index: 1000;
-  animation: floatUpDown 2s infinite ease-in-out;
+  background: transparent;
+  font-weight: bold;
 }
 
-.whatsapp-float img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+/* =================================
+   "NOUS" (ABOUT US) SECTION
+   ================================= */
+#nous {
+  background-color: #ffffff;
 }
 
-/* Animation flottante */
-@keyframes floatUpDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.nous-container {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
 }
+
+.nous-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+}
+
+.nous-texte {
+  border-left: 4px solid #d32f2f;
+  padding-left: 2em;
+}
+
+.nous-texte h3 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  font-family: 'Georgia', serif;
+}
+
+.nous-texte p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* =================================
+   SWIPER GALLERY & CUSTOMER REVIEWS
+   ================================= */
+#galerie {
+  background-color: #f8f8f8;
+}
+
+.swiper {
+  width: 90%;
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #FBC02D;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #ffffff;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #FBC02D;
+  transform: scale(1.2);
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: #ffffff;
+  opacity: 0.7;
+}
+
+/* --- Customer Reviews --- */
+#avis {
+  background-color: #fff;
+}
+.avis-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.avis-carte {
+  background-color: #f8f8f8;
+  padding: 2em;
+  border-radius: 8px;
+  border-left: 5px solid #FBC02D;
+  text-align: left;
+}
+.avis-texte {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+}
+.avis-auteur {
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+  margin-top: 1em;
+}
+
+/* =================================
+   MAP SECTION
+   ================================= */
 .section-map {
   background-color: #f9f9f9;
   padding: 40px 20px;
-  text-align: center;
-}
-
-.section-map h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #004D40;
 }
 
 .map-container {
@@ -701,536 +564,160 @@ html {
   height: 400px;
   border: 0;
 }
-.btn-quantite {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 16px;
-  margin: 0 5px;
-  border-radius: 4px;
+
+/* =================================
+   CART & MODAL
+   ================================= */
+   /* =================================
+   ESTILOS MEJORADOS PARA EL CARRITO
+   ================================= */
+
+/* 1. El contenedor principal del ícono */
+.cart-icon {
+  position: relative; /* Clave para posicionar el número encima */
+  font-size: 28px;    /* Aumenta el tamaño del ícono emoji */
   cursor: pointer;
+  color: white;       /* Asegura que el ícono sea blanco si usas uno de fuente */
 }
 
-.quantite-panier {
-  margin: 1em 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-
-
-
-
-/*
- * 1. LE CONTENEUR DE LA RECHERCHE
- * Assure que les suggestions se positionnent par rapport à lui.
-*/
-.search-box {
-  position: relative; /* TRÈS IMPORTANT */
-  display: flex;
-  background: white;
-  border-radius: 25px;
-  overflow: hidden;
-}
-
-/*
- * 2. LE CONTENEUR DES SUGGESTIONS
- * Assure que les suggestions apparaissent au-dessus de tout le reste.
-*/
-#suggestions {
- /* position: absolute; */  /* TRÈS IMPORTANT */
-  z-index: 1001;        /* TRÈS IMPORTANT - Met les suggestions au-dessus du menu */
+/* 2. El número (la insignia de notificación) */
+.cart-count {
+  position: absolute; /* Lo sacamos del flujo normal para posicionarlo */
+  top: -8px;          /* Lo subimos un poco */
+  right: -12px;         /* Lo movemos a la derecha */
   
-  /* --- Styles pour la visibilité --- */
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  top: 100%; /* Se place juste en dessous de la barre */
-  left: 0;
+  background-color: #FBC02D; /* El color amarillo de tu tema */
+  color: #222;               /* Texto oscuro para buen contraste */
+  
+  border-radius: 50%;       /* Lo hace perfectamente redondo */
+  padding: 3px 7px;         /* Espacio interno para que el número no esté apretado */
+  font-size: 12px;          /* Tamaño de fuente pequeño para el número */
+  font-weight: bold;        /* Hacemos el número más visible */
+  
+  /* Opcional: un pequeño borde para que resalte más */
+  border: 2px solid #D32F2F; 
+}
+
+
+.panier-container button {
+  background-color: #D32F2F;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  margin: 4px;
+}
+.panier-container button:hover {
+  background-color: #B71C1C;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+
+.modal-content input, .modal-content select {
   width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  box-sizing: border-box; /* Empêche les problèmes de largeur */
+  padding: 8px;
+  margin-bottom: 10px;
 }
-
-/* Style pour chaque suggestion individuelle */
-.suggestion-item {
-  padding: 10px;
-  cursor: pointer;
-  text-align: left; /* Aligne le texte à gauche */
-  color: #333; /* Couleur de texte lisible */
-}
-
-.suggestion-item:hover {
-  background-color: #f0f0f0;
-}
-
-/* =================================
-   SECTION NOUS / À PROPOS (Améliorée)
-   ================================= */
-
-#nous {
-  background-color: #ffffff; /* On remet un fond blanc pour faire ressortir le conteneur */
-  padding: 4em 20px;
-}
-
-/* On ajoute un titre H2 stylisé comme les autres sections */
-#nous h2 {
-  background-color: #FBC02D;
-  display: inline-block;
-  padding: 0.5em 1.5em;
-  border-radius: 5px;
-  margin-top: 0;
-  margin-bottom: 2.5em; /* Plus d'espace avant le contenu */
-}
-
-.nous-container {
+.btns-modal {
   display: flex;
-  align-items: center;
-  gap: 3em;
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: left;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#envoyer-commande {
+  background-color: #388E3C;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+#envoyer-commande:hover {
+  background-color: #2e7d32;
+}
+#fermer-modal {
+  background-color: red;
+}
+#fermer-modal:hover {
+  background-color: #5a6268;
 }
 
-.nous-image img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 10px;
-  
-}
-
-.nous-texte {
-  /* Ajout d'une bordure décorative à gauche */
-  border-left: 4px solid #d32f2f; /* Ligne rouge assortie au site */
-  padding-left: 2em; /* Espace entre la bordure et le texte */
-}
-
-.nous-texte h3 {
-  font-size: 2.2rem; /* Un peu plus grand */
-  color: #333; /* Noir adouci pour le titre */
-  margin-top: 0;
-  margin-bottom: 0.8em;
-  font-family: 'Georgia', serif; /* Police plus élégante pour le titre */
-}
-
-.nous-texte p {
-  font-size: 1.1rem;
-  line-height: 1.8; /* On aère le texte */
-  color: #555; /* Gris plus lisible */
-}
-
-/* --- Styles pour les mobiles --- */
-/* =================================
-   STYLES RESPONSIVES (MOBILES & TABLETTES)
-   ================================= */
-@media (max-width: 400px) {
-
-  /* --- Header --- */
-  .main-header {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* --- Section Hero --- */
-  .hero-content-diallo h1 {
-    font-size: 2.5rem;
-  }
-  .hero-content-diallo p {
-    font-size: 1.1rem;
-  }
-
-  /* --- Grilles des Menus --- */
-  .grid-menu {
-    grid-template-columns: 1fr;
-    gap: 2em;
-  }
-
-  /* --- Correction pour les titres h2 --- */
-  section h2, #nous h2 {
-    font-size: 1.5rem;
-    padding: 0.5em 1em;
-  }
-  
-  /* --- Section Nous --- */
-  .nous-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* --- Correction pour le footer --- */
-  .footer-contact, .footer-horaires, .footer-paiements {
-    margin-bottom: 20px;
-  }
-
-  /* --- Correction pour le panier flottant --- */
-  .panier-container {
-    width: auto;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    top: auto;
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-}
-
-  .nous-texte {
-    margin-top: 2em;
-    border-left: none; /* On enlève la bordure sur mobile */
-    padding-left: 0;
-    border-top: 4px solid #d32f2f; /* On la met au-dessus du texte */
-    padding-top: 2em;
-  }
-
-/* --- Section Avis Clients --- */
-#avis {
-  background-color: #fff;
-}
-.avis-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2em;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.avis-carte {
-  background-color: #f8f8f8;
-  padding: 2em;
-  border-radius: 8px;
-  border-left: 5px solid #FBC02D; /* Accent jaune */
-  text-align: left;
-}
-.avis-texte {
-  font-style: italic;
-  color: #555;
-  line-height: 1.6;
-}
-.avis-auteur {
-  font-weight: bold;
-  text-align: right;
-  color: #333;
-  margin-top: 1em;
+.hidden {
+  display: none !important;
 }
 /* =================================
-   BOUTON RETOUR EN HAUT
+   FLOATING BUTTONS (CHAT, WHATSAPP, BACK TO TOP)
    ================================= */
+
+/* --- Back to top button --- */
 #retour-haut {
   position: fixed;
-  bottom: 20px; 
-  right: 25px; /* Décalé pour ne pas être sur le logo WhatsApp */
-  
-  background-color: #d32f2f; /* Rouge assorti au header */
+  bottom: 90px;
+  right: 25px;
+  background-color: #d32f2f;
   color: white;
-  
   width: 50px;
   height: 50px;
   text-align: center;
   line-height: 50px;
   font-size: 24px;
-  font-weight: bold;
-  
   border-radius: 50%;
   text-decoration: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  
-  opacity: 0; /* Caché par défaut */
+  opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
   z-index: 1000;
 }
 
-/* Classe ajoutée par JavaScript pour le faire apparaître */
 #retour-haut.visible {
   opacity: 1;
   visibility: visible;
 }
-/* =================================
-   STYLE DU CARROUSEL GALERIE
-   ================================= */
-#galerie {
-  background-color: #f8f8f8; /* Fond gris clair pour cette section */
+
+/* --- WhatsApp floating button --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  animation: floatUpDown 2s infinite ease-in-out;
 }
 
-.swiper {
-  width: 90%; /* Le carrousel prend 90% de la largeur de la page */
-  max-width: 1200px; /* Mais pas plus de 1200px */
-  height: 500px; /* Hauteur du carrousel */
-  margin: 0 auto; /* Pour le centrer */
-  border-radius: 10px;
+.whatsapp-float img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Mantenemos 'cover' para las demás */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Style des flèches (optionnel) */
-
-/* ===== ESTILOS PERSONALIZADOS PARA EL CARRUSEL (SWIPER) ===== */
-
-/* --- Color de las flechas de navegación (Izquierda y Derecha) --- */
-.swiper-button-prev,
-.swiper-button-next {
-  color: #FBC02D; /* Color amarillo de tu tema */
-}
-
-/* Opcional: Cambiar el color a blanco al pasar el mouse por encima */
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  color: #ffffff; 
-}
-
-/* --- Color de los puntos de paginación (los redonditos de abajo) --- */
-
-/* Color del punto ACTIVO (el de la imagen actual) */
-.swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #FBC02D; /* Color amarillo de tu tema */
-  transform: scale(1.2); /* Lo hacemos un poco más grande para que destaque */
-}
-
-/* Color de los puntos INACTIVOS */
-.swiper-pagination .swiper-pagination-bullet {
-  background-color: #ffffff; /* Color blanco */
-  opacity: 0.7; /* Le damos un poco de transparencia para que no resalte tanto */
-}
-section {
-  /* Ajoute une bordure en haut de chaque section */
-  border-top: 1px solid #eeeeee; /* Ligne grise très claire */
-
-  /* Ajoute de l'espace pour que la ligne et le contenu respirent */
-  padding: 4em 20px;
-  text-align: center;
-}
-
-/* On ne veut pas de bordure sur la toute première section (le Hero) */
-.hero-diallo {
-  border-top: none;
-}
-
-/* On ajuste les titres de section */
-section h2 {
-  background-color: #FBC02D;
-  display: inline-block;
-  padding: 0.5em 1.5em;
-  border-radius: 5px;
-  margin-top: 0; /* Important: on retire l'ancienne marge */
-  margin-bottom: 2em; /* Espace entre le titre et les plats */
-}
-/* =================================
-   STYLES RESPONSIVES (MOBILES & TABLETTES)
-   ================================= */
-/* =================================
-   STYLES RESPONSIVES (FINAUX)
-   Pour tablettes et mobiles (768px et moins)
-   ================================= */
-@media (max-width: 400px) {
-
-  /* --- Header & Recherche --- */
-  .main-header {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px;
-  }
-  .search-box {
-    width: 100%;
-  }
-  .search-box button {
-    font-size: 14px;
-    padding: 0 10px;
-  }
-
-  /* --- Section Hero --- */
-  .hero-content-diallo h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content-diallo p {
-    font-size: 1rem;
-  }
-  .btn-diallo {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-
-  /* --- Titres de Section --- */
-  section h2, #nous h2 {
-    font-size: 1.5rem;
-    padding: 0.5em 1em;
-  }
-
-  /* --- Grilles des Menus --- */
-  .grid-menu {
-    grid-template-columns: 1fr;
-    gap: 2em;
-  }
-  
-  /* --- Section Nous --- */
-  .nous-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .nous-texte {
-    margin-top: 2em;
-    border-left: none;
-    padding-left: 0;
-    border-top: 4px solid #d32f2f;
-    padding-top: 2em;
-  }
-
-  /* --- Panier Flottant --- */
-  .panier-container {
-    width: auto;
-    left: 10px;
-    right: 10px;
-    bottom: 15px; /* Relevé pour ne pas être sous le bouton "retour en haut" */
-    top: auto;
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-  
-  /* --- Footer --- */
-  .footer-contact, .footer-horaires, .footer-paiements {
-    margin-bottom: 20px;
-  }
-  
-  /* --- Boutons Flottants --- */
-  #retour-haut {
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    font-size: 20px;
-    right: 15px;
-    bottom: 85px; /* Positionné au-dessus du bouton WhatsApp */
-  }
-  .whatsapp-float {
-      right: 15px;
-      bottom: 20px;
-  }
-  /* Si vous mettez WhatsApp à gauche */
-  /*
-  .whatsapp-float {
-      left: 15px;
-      bottom: 15px;
-  }
-  #retour-haut {
-      right: 15px;
-      bottom: 15px;
-  }
-  */
-}
-/* =================================
-   STYLE DU MODAL DE RECHERCHE (Corrigé pour effet Pop-up)
-   ================================= */
-
-/* Le fond sombre qui couvre toute la page */
-.recherche-modal {
-  position: fixed; /* Reste fixé par-dessus tout */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
-  z-index: 10000; /* Doit être au-dessus de tout le reste */
-  
-  /* Permet de centrer la fenêtre de contenu */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  backdrop-filter: blur(4px); /* Effet de flou sur le fond */
-}
-
-/* La fenêtre blanche qui contient les résultats */
-.recherche-modal-contenu {
-  background-color: white;
-  padding: 2em;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 1000px; /* Largeur maximale du pop-up */
-  height: auto; /* La hauteur s'adapte au contenu */
-  max-height: 80vh; /* Mais ne dépasse jamais 80% de la hauteur de l'écran */
-  overflow-y: auto; /* Ajoute une barre de défilement si le contenu est trop long */
-  position: relative;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-.recherche-modal-contenu h2 {
-  margin-top: 0;
-  text-align: center;
-  margin-bottom: 1.5em;
-}
-
-/* Le bouton pour fermer */
-.fermer-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: none;
-  border: none;
-  color: #555;
-  cursor: pointer;
-}
-
-/* La grille de résultats à l'intérieur du modal */
-#recherche-resultats.grid-menu {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5em;
-}
-
-/* La classe pour cacher/montrer le modal */
-.hidden {
-  display: none !important;
-}
-/* =================================
-   CORRECTION MISE EN PAGE DU MODAL DE RECHERCHE
-   ================================= */
-
-/* On change la grille en flexbox pour mieux centrer les éléments */
-#recherche-resultats.grid-menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* C'est la ligne clé qui centre les résultats */
-  gap: 1.5em;
-}
-
-/* On s'assure que les plats dans les résultats gardent une taille fixe */
-#recherche-resultats .plat {
-  flex-basis: 250px; /* Chaque plat aura une largeur de 250px */
-  flex-grow: 0;   /* On empêche le plat de s'agrandir pour remplir l'espace */
-}
-/* ====================================================== */
-/* ESTILOS DEL CHATBOT                  */
-/* ====================================================== */
-
-/* Botón flotante para abrir/cerrar */
+/* --- Chatbot Widget --- */
 #chat-toggle-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #D32F2F; /* Color rojo de tu tema */
+    background-color: #D32F2F;
     color: white;
     border-radius: 50%;
     border: none;
     font-size: 28px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     cursor: pointer;
-    z-index: 9998;
+    z-index: 1001;
     transition: transform 0.2s;
 }
 #chat-toggle-btn:hover {
     transform: scale(1.1);
 }
 
-/* Contenedor principal del widget de chat */
 .chat-widget {
     position: fixed;
     bottom: 90px;
@@ -1245,19 +732,15 @@ section h2 {
     flex-direction: column;
     overflow: hidden;
     z-index: 9999;
-    
-    /* Efecto de aparición */
     transform: scale(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Clase para mostrar el widget */
 .chat-widget.visible {
     transform: scale(1);
 }
 
-/* Encabezado del chat */
 .chat-header {
     background-color: #D32F2F;
     color: white;
@@ -1277,8 +760,6 @@ section h2 {
     font-size: 24px;
     cursor: pointer;
 }
-
-/* Área de mensajes */
 .chat-messages {
     flex-grow: 1;
     padding: 15px;
@@ -1302,11 +783,9 @@ section h2 {
     background-color: #007bff;
     color: white;
     align-self: flex-end;
-    margin-left: auto; /* Alinea a la derecha */
+    margin-left: auto;
     border-bottom-right-radius: 4px;
 }
-
-/* Área de "input" (botones de preguntas) */
 .chat-input-area {
     padding: 15px;
     border-top: 1px solid #ddd;
@@ -1329,654 +808,342 @@ section h2 {
     background-color: #007bff;
     color: white;
 }
-/* ====================================================== */
-/* CORRECCIÓN DE POSICIÓN PARA BOTONES FLOTANTES */
-/* ====================================================== */
 
-/* Botón del Chat (abajo de todo) */
-#chat-toggle-btn {
-    right: 20px;
-    bottom: 20px;
-    z-index: 1001; /* Aseguramos que esté por encima del de subir */
-}
-
-/* Botón de Subir (justo encima del de chat) */
-#retour-haut {
-    right: 25px; /* Ligeramente diferente para alinear el centro */
-    bottom: 90px; /* 20px de base + 60px del botón de chat + 10px de espacio */
-    z-index: 1000;
+/* =================================
+   FOOTER
+   ================================= */
+footer {
+  background-color: #004D40;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 16px;
+  margin-top: 50px;
 }
 
-/* Ajustes para móviles */
-@media (max-width: 400px) {
-    #retour-haut {
-      right: 15px;
-      bottom: 90px;
-    }
-    #chat-toggle-btn {
-      right: 15px;
-      bottom: 20px;
-    }
-}
-/* Style pour les petits écrans */
-@media (max-width: 600px) {
-  .whatsapp-float {
-    width: 50px; /* Rendre le bouton plus petit */
-    height: 50px;
-    bottom: 20px; /* Le rapprocher du bas de l'écran */
-    right: 20px; /* Le rapprocher du bord droit de l'écran */
-    font-size: 25px; /* Réduire la taille de l'icône */
-  }
-}
-@media (max-width: 400px) {
-  h2 {
-    font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
-    margin: 20px 0; /* Réduit aussi la marge */
-  }
-}
-
-/* Vous pouvez même cibler des écrans encore plus petits si nécessaire */
-@media (max-width: 480px) {
-  h2 {
-    font-size: 1.5em; /* Une taille encore plus petite pour les très petits téléphones */
-  }
-}
-@media (max-width: 400px) {
-  /* Empiler les éléments du footer verticalement */
-  #footer-contact {
-    flex-direction: column;
-    align-items: center; /* Centrer les éléments */
-  }
-
-  /* Les sections de contact et de carte prennent toute la largeur */
-  .footer-contact, .section-map {
-    flex: 1 1 100%;
-    margin: 10px 0;
-    text-align: center; /* Centre le texte */
-  }
-
-  /* Le conteneur de la carte */
-  .map-container iframe {
-    width: 100%; /* S'assure que la carte ne dépasse pas */
-  }
-  
-  /* Les icônes de paiement */
-  .paiement-icones img {
-    max-width: 50px; /* Réduit la taille des icônes */
-  }
-}
-/* Estilos para el footer responsive */
 .footer-contact {
+  margin-bottom: 20px;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.footer-contact a {
+  color: #fdd835;
+  text-decoration: none;
+}
+
+.paiement-icones {
+  margin-top: 10px;
   display: flex;
-  flex-direction: column; /* Apile les éléments verticalement */
-  align-items: center; /* Centre les éléments */
-  margin-bottom: 20px; /* Espace entre les sections */
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
-@media (max-width: 400px) {
-  .footer-contact {
-    text-align: center; /* Centre le texte sur les petits écrans */
-  }
-  .footer-contact p, .footer-contact a {
-    margin: 5px 0; /* Réduit l'espace entre les éléments */
-  }
-}
-/* h2 responsive */
-@media (max-width: 400px) {
-  h2 {
-    font-size: 1.8em; /* Réduit la taille du texte sur les écrans de téléphone et de tablette */
-    margin: 20px 0; /* Réduit aussi la marge */
-  }
-}
-/* responsive .paiement-icones */
-@media (max-width: 400px) {
-  .paiement-icones img {
-    max-width: 50px; /* Réduit la taille des icônes */
-  }
-}
-@media (max-width: 400px) {
-  h2 {
-    font-size: 1.4em; /* Ajuste adicional para pantallas muy pequeñas */
-    margin: 15px 0; /* Ajuste de margen */
-  }
-}
-/* Corrección para el botón de búsqueda en móviles */ 
-@media (max-width: 400px) {
-  .search-box {
-    width: 100%; /* La caja de búsqueda toma todo el ancho disponible */
-  }
-  .search-box input {
-    flex: 1; /* El input ocupa todo el espacio disponible */
-    font-size: 14px; /* Texto un poco más pequeño */
-  }
- 
-}/* Corrección para el modal de búsqueda en móviles */
-@media (max-width: 400px) {
-  .recherche-modal-contenu {
-    width: 95%; /* El modal ocupa casi todo el ancho */
-    height: auto; /* La altura se adapta al contenido */
-    max-height: 90vh; /* Pero no más del 90% de la altura de la pantalla */
-    padding: 1em; /* Menos padding para móviles */
-  }
-  #recherche-resultats .plat {
-    flex-basis: 100%; /* Cada platillo ocupa toda la fila */
-  }
-}
-/* Trouver l'élément qui cause le défilement horizontal */
-@media (max-width: 400px) {
-  .swiper {
-    width: 100%; /* Le carrousel prend toute la largeur de l'écran */
-    height: 300px; /* Hauteur réduite pour les petits écrans */
-  }
-  .swiper-slide img {
-    object-fit: cover; /* Assure que l'image couvre bien le slide */
-  }
-}
-/* Ajustements pour le carrousel sur mobiles */
-@media (max-width: 400px) {
-  .swiper {
-    width: 100%; /* Le carrousel prend toute la largeur de l'écran */
-    height: 300px; /* Hauteur réduite pour les petits écrans */
-  }
-  .swiper-slide img {
-    object-fit: cover; /* Assure que l'image couvre bien le slide */
-  }
-}
-/*ajuste de responsive para todas las secciones responsive para todo tipo de celular pantalla etc */
-@media (max-width: 400px){
 
+.paiement-icones img {
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.paiement-icones img:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================================================
+   SECCIÓN RESPONSIVE UNIFICADA (PARA TABLETS Y MÓVILES)
+   =================================================================== */
+@media (max-width: 768px) {
+  /* --- Layout y Tipografía General --- */
   section {
-    padding: 2em 10px; /* Moins d'espace sur les côtés */
-    text-align: center; /* Centre le texte pour les petits écrans */
+    padding: 2.5em 15px;
   }
-  section h2 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-    padding: 0.5em 1em; /* Moins de padding */
-    margin-bottom: 1.5em; /* Moins d'espace entre le titre et le contenu */
+  section h2, #nous h2 {
+    font-size: 1.6rem;
+    padding: 0.5em 1em;
+    margin-bottom: 1.5em;
   }
-  section h2 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-    padding: 0.5em 1em; /* Moins de padding */
+
+  /* --- Header --- */
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  /* --- FIX DEFINITIVO PARA EL HEADER EN MÓVILES --- */
+  .nav-menu > ul, .header-right {
+    flex-direction: column; /* Apila los elementos del menú y de la derecha */
+    align-items: center;    /* Centra esos elementos */
+    gap: 12px;              /* Añade un poco de espacio entre ellos */
+    width: 100%;
+  }
+  .nav-menu a {
+    text-align: center;
+  }
+  .search-box {
+    width: 100%;
+  }
+  /* --- FIN DEL FIX --- */
 
 
-    margin-bottom: 1.5em; /* Moins d'espace entre le titre et le contenu */
-  }
-  .grid-menu {
-    grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
-    gap: 1.5em; /* Espace entre les éléments */
-  }
-  .plat {
-    flex-basis: 100%; /* Chaque plat prend toute la largeur */
-    max-width: none; /* Pas de limite de largeur */
-  }
+  /* --- Hero Section --- */
   .hero-content-diallo h1 {
-    font-size: 2rem; /* Taille de police plus petite pour les petits écrans */
+    font-size: 2.2rem;
   }
   .hero-content-diallo p {
-    font-size: 1rem; /* Taille de police plus petite pour les petits écrans */
+    font-size: 1.1rem;
   }
   .btn-diallo {
-    padding: 10px 20px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
+    padding: 12px 24px;
+    font-size: 1rem;
   }
+
+  /* --- Grids (Menú, Avisos, etc.) --- */
+  .grid-menu, .avis-container {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  /* --- "Nous" (About Us) Section --- */
   .nous-container {
-    flex-direction: column; /* Empile les éléments verticalement */
-    text-align: center; /* Centre le texte */
-  }
-  .nous-image img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5em;
   }
   .nous-texte {
-    margin-top: 1em; /* Espace entre l'image et le texte */
-    border-left: none; /* Pas de bordure sur les petits écrans */
-    padding-left: 0; /* Pas de padding à gauche */
-    border-top: 4px solid #d32f2f; /* Bordure en haut pour les petits écrans */
-    padding-top: 1em; /* Padding en haut */
+    margin-top: 1.5em;
+    border-left: none;
+    padding-left: 0;
+    border-top: 4px solid #d32f2f;
+    padding-top: 1.5em;
   }
   .nous-texte h3 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .nous-texte p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-    line-height: 1.5; /* Aération du texte */
-  }
-  .avis-container {
-    grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
-    gap: 1.5em; /* Espace entre les avis */
-  }
-  .avis-carte {
-    padding: 1.5em; /* Moins de padding pour les petits écrans */
-  }
-  .avis-texte {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .avis-auteur {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .footer-contact, .footer-horaires, .footer-paiements {
-    flex-direction: column; /* Empile les éléments verticalement */
-    align-items: center; /* Centre les éléments */
-    text-align: center; /* Centre le texte */
-  }
-  .footer-contact p, .footer-contact a {
-    margin: 5px 0; /* Moins d'espace entre les éléments */
+    font-size: 1.8rem;
   }
 
-  .paiement-icones img {
-    max-width: 50px; /* Réduit la taille des icônes de paiement */
-  }
-  .section-map h2 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .map-container {
-    width: 100%; /* La carte prend toute la largeur */
-    max-width: none; /* Pas de limite de largeur */
+  /* --- Galería y Mapa --- */
+  .swiper {
+    width: 100%;
+    height: 300px;
   }
   .map-container iframe {
-    height: 300px; /* Hauteur réduite pour les petits écrans */
-  }
-  .btn-quantite {
-    padding: 6px 12px; /* Moins de padding pour les petits écrans */
-    font-size: 14px; /* Taille de police plus petite */
-  }
-  .quantite-panier {
-    flex-direction: column; /* Empile les boutons verticalement */
-    align-items: center; /* Centre les éléments */
-  }
-  .btn-quantite {
-    margin: 5px 0; /* Espace entre les boutons */
-  }
-  .ajouter-panier {
-    padding: 8px 0; /* Moins de padding pour les petits écrans */
-    font-size: 14px; /* Taille de police plus petite */
-  }
-  .btn-commande {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 14px; /* Taille de police plus petite */
-  }
-  .whatsapp-float img {
-    width: 50px; /* Réduit la taille de l'icône WhatsApp */
-    height: 50px; /* Assure que l'icône reste ronde */
-  }
-  .hero-diallo {
-    padding: 2em 10px; /* Moins d'espace sur les côtés */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.8rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
+    height: 300px;
   }
 
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
+  /* --- Carrito Flotante --- */
 
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-
-  .hero-content-diallo p {
-    font-size: 0.9rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  .btn-diallo {
-    padding: 8px 16px; /* Moins de padding pour les petits écrans */
-    font-size: 0.9rem; /* Taille de police plus petite */
-  }
-  .hero-content-diallo {
-    text-align: center; /* Centre le texte pour les petits écrans */
-  }
-  .hero-content-diallo img {
-    width: 100%; /* L'image prend toute la largeur */
-    max-width: 300px; /* Limite la largeur maximale pour les petits écrans */
-    height: auto; /* Assure que l'image garde ses proportions */
-  }
-  .hero-content-diallo {
-    padding: 1em; /* Moins d'espace autour du contenu */
-  }
-  .hero-content-diallo h1 {
-    font-size: 1.5rem; /* Taille de police plus petite pour les petits écrans */
-  }
-  /* */
- }
-
-
-/*<button id="chat-toggle-btn">💬</button> 
-, <a href="#" id="retour-haut" title="Retour en haut" class="visible">↑</a> ,<button id="chat-toggle-btn">💬</button> , 
-<button id="recherche-btn">🔍</button>, responsive 768 */
-@media (max-width: 768px) {
-  #chat-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px; /* Taille réduite pour les petits écrans */
+  
+  /* --- Botones Flotantes --- */
+  .whatsapp-float {
+    width: 50px;
     height: 50px;
-    background-color: #D32F2F; /* Rouge assorti au header */        
-    color: white;         
-    border-radius: 50%;
-
-    border: none;
-    font-size: 24px; /* Taille de police réduite */
-
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    cursor: pointer;  
-    z-index: 9998; /* Assure qu'il est au-dessus de tout */       
-    transition: transform 0.2s;         
-  } 
-  #chat-toggle-btn:hover {
-    transform: scale(1.1); /* Agrandit légèrement au survol */
-  } 
-
-  #retour-haut {
-    position: fixed;
-    bottom: 80px; /* Ajusté pour être au-dessus du bouton de chat */
-    right: 20px;
-    background-color: #D32F2F; /* Rouge assorti au header */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    font-size: 24px; /* Taille de police réduite */
-    cursor: pointer;
-    z-index: 9999; /* Assure qu'il est au-dessus du bouton de chat */
+    left: 15px;
+    bottom: 20px;
   }
-  /* Estilos generales para el botón de búsqueda */
-.search-box button {
-  background: transparent;
+  #retour-haut {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    right: 15px;
+    bottom: 90px;
+  }
+  #chat-toggle-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    right: 15px;
+    bottom: 20px;
+  }
+  .chat-widget {
+    width: 90%;
+    max-width: 400px;
+    bottom: 80px;
+    right: 10px;
+  }
+
+  /* --- Footer --- */
+  .footer-contact, .footer-horaires, .footer-paiements {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .paiement-icones img {
+    max-width: 50px;
+  }
+}
+/* =================================
+   ESTILO PROFESIONAL PARA EL MODAL
+   ================================= */
+
+/* El contenedor del modal */
+.modal-content {
+  background: #ffffff;
+  padding: 2em; /* Más espacio interno */
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  border-top: 6px solid #FBC02D; /* Borde amarillo para branding */
+  text-align: left; /* Alineamos todo a la izquierda */
+}
+
+/* Título del modal */
+.modal-content h2 {
+  text-align: center;
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* Etiquetas (labels) de cada campo */
+.modal-content label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* Campos de entrada (input y select) */
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto al hacer clic en un campo */
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-color: #FBC02D; /* Borde amarillo al seleccionar */
+  box-shadow: 0 0 0 3px rgba(251, 192, 45, 0.3);
+}
+
+/* Contenedor de los botones */
+.btns-modal {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 2em;
+}
+
+/* Estilo común para ambos botones */
+.btns-modal button {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
   border: none;
-  padding: 8px 12px;
   cursor: pointer;
-  font-size: 16px;
-  color: white; /* Asegura que el icono sea blanco */
+  transition: background-color 0.2s, transform 0.2s;
 }
+
+/* Botón principal (Enviar) */
+#envoyer-commande {
+  background-color: #388E3C; /* Verde */
+  color: white;
+  flex-grow: 2; /* Ocupa más espacio */
 }
-/*cierra el acolade*/
 
+#envoyer-commande:hover {
+  background-color: #2e7d32;
+  transform: translateY(-2px);
+}
 
+/* Botón secundario (Cancelar) */
+#fermer-modal {
+  background-color: #e0e0e0; /* Un gris neutro, más profesional que el rojo */
+  color: #333;
+  flex-grow: 1; /* Ocupa menos espacio */
+}
 
+#fermer-modal:hover {
+  background-color: #cccccc;
+}
+/* =================================
+   ESTILO PARA BOTÓN 'COMMANDER'
+   ================================= */
 
+.btn-commande {
+  display: inline-block; /* Permite que el padding y margen funcionen bien */
+  background-color: #388E3C; /* Mismo verde que 'Ajouter au panier' */
+  color: white; /* El color de texto ya es blanco, se verá bien */
+  
+  padding: 12px 24px; /* Espacio interno para hacerlo más grande y fácil de clicar */
+  margin-top: 10px; /* Espacio para separarlo del precio */
+  
+  width: 90%; /* Ocupa casi todo el ancho de su contenedor */
+  max-width: 250px; /* Un ancho máximo para que no sea demasiado grande */
+  
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* En caso de que esté dentro de un <a> */
+  
+  border: none;
+  border-radius: 6px;
+  
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+/* Efecto al pasar el ratón por encima */
+.btn-commande:hover {
+  background-color: #2e7d32; /* Un verde un poco más oscuro */
+  transform: translateY(-2px); /* Un sutil efecto de elevación */
+}
+/* =================================
+   ESTILO PROFESIONAL PARA BOTÓN CERRAR (×)
+   ================================= */
+
+/* =================================
+   ESTILO CON COLOR PARA BOTÓN CERRAR (×)
+   ================================= */
+
+.fermer-panier-btn {
+  /* Posición */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  /* Forma y Tamaño */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  
+  /* === CAMBIOS DE COLOR === */
+  background-color: #D32F2F; /* Rojo principal de tu marca */
+  color: white;             /* '×' en color blanco para contraste */
+  
+  /* Centrado de la '×' */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Estilo del texto '×' */
+  font-size: 24px;
+  line-height: 1;
+  font-weight: bold; /* Hacemos la 'x' un poco más gruesa */
+  
+  /* Funcionalidad y Efectos */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s;
+}
+
+/* Efecto al pasar el ratón */
+.fermer-panier-btn:hover {
+  background-color: #B71C1C; /* Un rojo más oscuro al pasar el ratón */
+  transform: rotate(90deg);
+}
+* {
+  border: 1px solid red;
+}
