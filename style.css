@@ -207,10 +207,7 @@ html {
   background-image: url("images/hero-diallo.jpg");
   background-size: cover;
   background-position: center;
-  
-  /* LÍNEA CORREGIDA: Cambiamos 'fixed' por 'scroll' para que la imagen se mueva con la página */
-  background-attachment: scroll; 
-  
+  background-attachment: scroll;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -220,6 +217,9 @@ html {
   position: relative;
   color: #fff;
   border-top: none;
+
+  /* === AÑADE ESTA LÍNEA === */
+  box-sizing: border-box; 
 }
 
 .hero-diallo::before {
@@ -248,22 +248,24 @@ html {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   color: #FFD700;
+   margin-top: 0;
 }
 
 .hero-content-diallo p {
   font-size: 1.4rem;
   margin-bottom: 2rem;
+
 }
 
 .btn-diallo {
-  background-color: #f4b400;
-  color: #000;
+  background-color: #FBC02D;   /* Mantenemos el fondo mostaza */
+  color: #004D40;   
   padding: 14px 30px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .btn-diallo:hover {
@@ -279,13 +281,34 @@ section {
   border-top: 1px solid #eeeeee;
 }
 
+/* =================================
+   ESTILO SUTIL PARA TÍTULOS H2 (SEGURO)
+   ================================= */
+
 section h2, #nous h2 {
-  background-color: #FBC02D;
+  background-color: #FBC02D;   /* Mantenemos el fondo mostaza */
+  color: #004D40;              /* Texto en verde oscuro para mejor contraste y estilo */
+  
   display: inline-block;
-  padding: 0.5em 1.5em;
-  border-radius: 5px;
+  padding: 0.5em 1.5em;       /* Volvemos al padding original y seguro */
+  border-radius: 5px;         /* Volvemos al borde original */
+  
+  /* --- DETALLE SUTIL --- */
+  /* Añadimos solo un borde inferior de un amarillo un poco más oscuro para dar profundidad */
+  border-bottom: 3px solid #F9A825; 
+
   margin-top: 0;
   margin-bottom: 2em;
+  font-weight: bold; /* Nos aseguramos de que sea negrita */
+}
+
+/* Versión para móviles, un poco más pequeña para asegurar que quepa */
+@media (max-width: 768px) {
+    section h2, #nous h2 {
+        font-size: 1.4rem; 
+        padding: 0.5em 1.2em;
+        margin-bottom: 1.5em;
+    }
 }
 
 /* =================================
