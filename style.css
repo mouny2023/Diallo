@@ -1143,7 +1143,7 @@ footer {
 .fermer-panier-btn:hover {
   background-color: #B71C1C; /* Un rojo más oscuro al pasar el ratón */
   transform: rotate(90deg);
-}
+}/*
 * {
   border: 1px solid red;
-}
+}*/
