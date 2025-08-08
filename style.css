@@ -161,12 +161,15 @@ html {
   overflow-y: auto;
   position: relative;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+   text-align: center;
 }
 
 .recherche-modal-contenu h2 {
   margin-top: 0;
   text-align: center;
   margin-bottom: 1.5em;
+  background-color: #FBC02D;
+  display: inline-block;
 }
 
 .fermer-btn {
